@@ -10,7 +10,31 @@ html {
     width: 100vw;
 }
 
-// code {
-//     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-//         monospace;
-// }
+.login-left {
+    background-image: url("./assets/bg.png");
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+@media (max-width: 768px) {
+    .login-left {
+        display: none;
+    }
+    .login-right {
+        background-image: url("./assets/bg.png");
+        height: 100vh;
+        padding: 1rem;
+    }
+}
+.login-logo {
+    height: 200px;
+    width: 200px;
+}
