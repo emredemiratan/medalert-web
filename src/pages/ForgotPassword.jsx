@@ -29,23 +29,19 @@ const Login = () => {
             </div>
         <div className="flex flex-col md:w-1/2 w-full h-full items-center justify-center">
             <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-4 rounded-lg">
-                <div className="flex flex-col gap-2">
-                    <span>email</span>
+
+            <div className="flex flex-col items-center">
+                <span>Enter the email address associated with your account.
+                        We will email you link to reset your password!
+                    </span>
+                </div>
+                <div className="flex flex-col  gap-2">
                     <input className="px-4 py-2 rounded-lg border-2 border-green-600" type="email" placeholder="email" />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <span>password</span>
-                    <input className="px-4 py-2 rounded-lg border-2 border-green-600" type="password" placeholder="password" />
-                </div>
-                <div className="flex flex-col items-end">
-                    <span className="hover:cursor-pointer hover:text-blue-800" onClick={()=>{navigate("/forgotpassword")}}>Forgot Password?</span>
-                </div>  
-                <div className="flex flex-col gap-2">
-                    <button className="text-white bg-blue-500 rounded-lg py-2 " onClick={()=>{navigate("/homescreen")}}>login</button>
+                    <button className="text-white bg-blue-500 rounded-lg py-2 " >Send</button>
                 </div> 
-                <div className="flex flex-col items-center">
-                    <span>Not a Member? </span><span className="hover:cursor-pointer hover:text-blue-800" onClick={()=>{navigate("/register")}}>Register Now</span>                   
-                </div>
+                
             </div>
         </div>
 
