@@ -29,6 +29,11 @@ const Login = () => {
             </div>
         <div className="flex flex-col md:w-1/2 w-full h-full items-center justify-center">
             <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-4 rounded-lg">
+            <img
+                    src={require("../assets/medalert-logo.png")}
+                    alt=""
+                    className="w-1/2 h-1/2 -m-4 "
+                />
 
             <div className="flex flex-col items-center">
                 <span>Enter the email address associated with your account.
@@ -36,10 +41,10 @@ const Login = () => {
                     </span>
                 </div>
                 <div className="flex flex-col  gap-2">
-                    <input className="px-4 py-2 rounded-lg border-2 border-green-600" type="email" placeholder="email" />
+                    <input className="px-4 py-2 rounded-lg border-2 border-green-600" type="email" placeholder="Email" />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <button className="text-white bg-blue-500 rounded-lg py-2 " >Send</button>
+                    <button className="text-white bg-turquase rounded-lg py-2 " >Send</button>
                 </div> 
                 
             </div>
