@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
-
-import Layout from "../layouts/Layout";
+import React, { useEffect } from "react";
 
 import Loading from "../components/Loading";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import { Outlet } from "react-router-dom";
+
+import Header from "../components/Header";
 
 const Root = () => {
     const navigate = useNavigate();
@@ -22,7 +24,8 @@ const Root = () => {
 
     return (
         <div className="">
-            <Layout />
+            {user.name.length > 0 && <Header />}
+            <Outlet />
             {loading && <Loading />}
         </div>
     );

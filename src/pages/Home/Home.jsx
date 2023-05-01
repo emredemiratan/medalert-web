@@ -6,16 +6,17 @@ import "./home.css";
 
 import Typewriter from "../../components/Typewriter";
 import ButtonComponent from "../../components/ButtonComponent";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const user = useSelector((state) => state.user);
 
     const texts = {
         greetings: `Hello ${user.name}, how are you feeling today?`,
         customerIsWell: "I'm glad to hear that. Have a nice day.",
-        customerIsNotWell: "I'm sorry to hear that. Could you tell me what's wrong with you?",
         responseGreen: "You might have nothing to worry about. Here are your possible diseases:",
         responseYellow: "Here are your possible diseases:",
         responseOrange: "Here are your possible diseases:",
@@ -23,7 +24,7 @@ const Home = () => {
     };
 
     function notFeelingWell() {
-        //
+        navigate("/symptoms");
     }
 
     return (
@@ -34,7 +35,6 @@ const Home = () => {
                         <Typewriter text={texts.greetings} />
                     </div>
                     {/* <Typewriter text={texts.customerIsWell} />
-                    <Typewriter text={texts.customerIsNotWell} />
                     <Typewriter text={texts.responseGreen} />
                     <Typewriter text={texts.responseYellow} />
                     <Typewriter text={texts.responseOrange} />

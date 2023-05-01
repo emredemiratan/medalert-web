@@ -25,17 +25,19 @@ const Register = () => {
                     <img
                         src={require("../assets/medalert-logo.png")}
                         alt=""
-                        className="w-1/4 h-1/4  "
+                        className="w-[200px] h-[200px]"
                     />
                 </div>
             </div>
             <div className="flex flex-col md:w-1/2 w-full h-full items-center justify-center overflow-auto">
                 <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-1 rounded-lg overflow-y">
-                    <img
-                        src={require("../assets/medalert-logo.png")}
-                        alt=""
-                        className="w-1/2 h-1/2 -m-4 "
-                    />
+                    <div className="flex items-center justify-center">
+                        <img
+                            src={require("../assets/medalert-logo.png")}
+                            alt=""
+                            className="w-[200px] h-[200px] -m-4 "
+                        />
+                    </div>
                     <div className="flex flex-col gap-2">
                         <span>Name</span>
                         <input
