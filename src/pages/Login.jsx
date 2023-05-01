@@ -60,7 +60,7 @@ const Login = () => {
                         <button
                             className="text-white bg-turquase rounded-lg py-2 "
                             onClick={() => {
-                                navigate("/home");
+                                navigate("/profiles");
                             }}
                         >
                             Login

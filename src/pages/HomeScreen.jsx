@@ -4,7 +4,7 @@ import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const HomesScreen = () => {
+const HomeScreen = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
@@ -56,4 +56,4 @@ const HomesScreen = () => {
     );
 };
 
-export default HomesScreen;
+export default HomeScreen;

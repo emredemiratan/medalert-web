@@ -11,6 +11,8 @@ import AcceptScreen from "./pages/AcceptScreen";
 import SymptomSelection from "./pages/SymptomSelection";
 
 import CustomComponents from "./pages/CustomComponents";
+import CreateProfile from "./pages/CreateProfile";
+import Profiles from "./pages/Profiles";
 
 import Home from "./pages/Home/Home";
 
@@ -52,6 +54,15 @@ const router = createBrowserRouter([
             {
                 path: "/symptoms",
                 element: <SymptomSelection />,
+            },
+
+            {
+                path: "/createprofile",
+                element: <CreateProfile />,
+            },
+            {
+                path: "/profiles",
+                element: <Profiles />,
             },
         ],
     },

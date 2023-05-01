@@ -30,36 +30,12 @@ const Register = () => {
                 </div>
             </div>
             <div className="flex flex-col md:w-1/2 w-full h-full items-center justify-center overflow-auto">
-                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-1 rounded-lg overflow-y">
+                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-3 rounded-lg overflow-y">
                     <div className="flex items-center justify-center">
                         <img
                             src={require("../assets/medalert-logo.png")}
                             alt=""
                             className="w-[200px] h-[200px] -m-4 "
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <span>Name</span>
-                        <input
-                            className="px-4 py-2 rounded-lg border-2 border-green-600"
-                            type="name"
-                            placeholder="Please Enter Your Name"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <span>Surname</span>
-                        <input
-                            className="px-4 py-2 rounded-lg border-2 border-green-600"
-                            type="surname"
-                            placeholder="Please Enter Your Surname"
-                        />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <span>Phone Number</span>
-                        <input
-                            className="px-4 py-2 rounded-lg border-2 border-green-600"
-                            type="phone"
-                            placeholder="Please Enter Your Phone Number"
                         />
                     </div>
                     <div className="flex flex-col gap-2">
@@ -71,36 +47,18 @@ const Register = () => {
                         />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <span>Date Of Birth</span>
-                        <Calendar value={date} onChange={(e) => setDate(e.value)} showIcon />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <span>Address</span>
+                        <span>Password</span>
                         <input
                             className="px-4 py-2 rounded-lg border-2 border-green-600"
-                            type="address"
-                            placeholder="Please Enter Your Address"
+                            type="password"
+                            placeholder="Please Enter Your Password"
                         />
                     </div>
-                    <span>Gender</span>
-                    <div className="flex flex-row gap-2">
-                        <div className="flex flex-row gap-2 items-center">
-                            <Dropdown
-                                value={selectedCity}
-                                onChange={(e) => setSelectedCity(e.value)}
-                                options={cities}
-                                optionLabel="name"
-                                placeholder="Gender"
-                                className="w-full md:w-14rem"
-                            />
-                        </div>
-                    </div>
-
                     <div className="flex flex-col gap-2">
                         <button
                             className="text-white bg-turquase rounded-lg py-2 "
                             onClick={() => {
-                                navigate("/login");
+                                navigate("/createprofile");
                             }}
                         >
                             Register
