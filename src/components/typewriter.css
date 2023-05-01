@@ -1,0 +1,20 @@
+.typewriter {
+    border-right: 0.15em solid blue;
+    font-family: monospace;
+
+    /* Add blinking animation */
+    animation: blink 0.7s linear infinite;
+}
+
+/* Define the animation */
+@keyframes blink {
+    0% {
+        border-right-color: blue;
+    }
+    50% {
+        border-right-color: transparent;
+    }
+    100% {
+        border-right-color: blue;
+    }
+}
