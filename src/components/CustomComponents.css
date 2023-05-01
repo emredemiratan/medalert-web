@@ -1,7 +1,7 @@
 /* buttons */
 .p-button {
-    padding: 0 !important;
-    margin: 0 !important;
+    /* padding: 0 !important; */
+    /* margin: 0 !important; */
     box-shadow: 3px 3px 5px 0px lightgray;
 }
 .blue-button {

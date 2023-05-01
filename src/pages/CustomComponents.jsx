@@ -20,12 +20,12 @@ const CustomComponents = () => {
 
     return (
         <div className="container-fluid">
-            <div className="row my-3">
+            <div className="grid my-3">
                 <div className="col">
                     <h5>Buttons</h5>
                 </div>
             </div>
-            <div className="row mb-3">
+            <div className="grid mb-3">
                 <div className="col-3">
                     <ButtonComponent
                         label="blue"
@@ -63,12 +63,12 @@ const CustomComponents = () => {
                     />
                 </div>
             </div>
-            <div className="row mb-3">
+            <div className="grid mb-3">
                 <div className="col">
                     <h5>Dropdown</h5>
                 </div>
             </div>
-            <div className="row mb-3">
+            <div className="grid mb-3">
                 <div className="col">
                     <DropdownComponent
                         value={selectedCountry}

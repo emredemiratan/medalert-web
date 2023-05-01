@@ -28,9 +28,9 @@ const Home = () => {
 
     return (
         <>
-            <div className="row h-100 mt-5 mb-5">
-                <div className="col d-flex justify-content-center">
-                    <div className="p-3 d-flex justify-content-center border">
+            <div className="grid h-100 mt-5 mb-5">
+                <div className="col-12 flex justify-center">
+                    <div className="p-3 flex justify-center border">
                         <Typewriter text={texts.greetings} />
                     </div>
                     {/* <Typewriter text={texts.customerIsWell} />
@@ -41,8 +41,8 @@ const Home = () => {
                     <Typewriter text={texts.responseRed} /> */}
                 </div>
             </div>
-            <div className="row">
-                <div className="col d-flex justify-content-center align-items-center">
+            <div className="grid">
+                <div className="col-12 flex justify-center items-center">
                     <ButtonComponent
                         label="I'm not feeling well."
                         type="blue"

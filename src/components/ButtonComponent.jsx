@@ -9,11 +9,11 @@ const ButtonComponent = (props) => {
         <Button
             id={props.id}
             onClick={props.onClick ? props.onClick : () => {}}
-            className={`${props.type}-button ${props.className} px-3 py-1 flex justify-content-center align-items-center`}
+            className={`${props.type}-button px-3 py-1 flex justify-center items-center ${props.className}`}
             disabled={props.disabled}
         >
             {props.label && <span className="label">{props.label}</span>}
-            {props.icon && <i className={`pi ${props.icon} ms-3`} />}
+            {props.icon && <i className={`pi ${props.icon} ml-3`} />}
         </Button>
     );
 };

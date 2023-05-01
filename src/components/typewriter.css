@@ -1,6 +1,7 @@
 .typewriter {
     border-right: 0.15em solid blue;
     font-family: monospace;
+    font-size: large;
 
     /* Add blinking animation */
     animation: blink 0.7s linear infinite;
