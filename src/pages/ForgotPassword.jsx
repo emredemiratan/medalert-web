@@ -3,11 +3,16 @@ import React from "react";
 import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ButtonComponent from "../components/ButtonComponent";
 
 const ForgotPassword = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
+
+    function ForgotPassword() {
+        navigate("/login");
+    }
 
     return (
         <div className="flex md:flex-row flex-col w-screen h-screen">
@@ -43,7 +48,7 @@ const ForgotPassword = () => {
                         />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <button className="text-white bg-turquase rounded-lg py-2 ">Send</button>
+                    <ButtonComponent label="Send" type="turquoise" onClick={() => ForgotPassword()}/>
                     </div>
                 </div>
             </div>

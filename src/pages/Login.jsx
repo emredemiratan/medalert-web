@@ -3,11 +3,16 @@ import React from "react";
 import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ButtonComponent from "../components/ButtonComponent";
 
 const Login = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
+    function Login() {
+        navigate("/profiles");
+    }
+
 
     return (
         <div className="flex md:flex-row flex-col w-screen h-screen">
@@ -56,15 +61,8 @@ const Login = () => {
                             Forgot Password?
                         </span>
                     </div>
-                    <div className="flex flex-col gap-2">
-                        <button
-                            className="text-white bg-turquase rounded-lg py-2 "
-                            onClick={() => {
-                                navigate("/profiles");
-                            }}
-                        >
-                            Login
-                        </button>
+                    <div className="flex flex-col items-center gap-2">
+                    <ButtonComponent label="Login" type="turquoise" onClick={() => Login()} />
                     </div>
                     <div className="flex flex-col items-center">
                         <span>Not a Member? </span>

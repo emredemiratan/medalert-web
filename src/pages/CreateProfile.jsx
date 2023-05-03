@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Calendar } from "primereact/calendar";
 import { Dropdown } from "primereact/dropdown";
 import DropdownComponent from "../components/DropdownComponent";
+import ButtonComponent from "../components/ButtonComponent";
 
 const CreateProfile = () => {
     const dispatch = useDispatch();
@@ -66,6 +67,10 @@ const CreateProfile = () => {
             },
         ];
         const [selectedMedications, setSelectedMedications] = useState([]);
+        
+        function CreateProfile() {
+            navigate("/login");
+        }
 
     
     
@@ -165,15 +170,8 @@ const CreateProfile = () => {
                     />
                 </div>
             </div>
-                    <div className="flex flex-col gap-2">
-                        <button
-                            className="text-white bg-turquase rounded-lg py-2 "
-                            onClick={() => {
-                                navigate("/login");
-                            }}
-                        >
-                            Create Profile
-                        </button>
+                    <div className="flex flex-col gap-3">
+                    <ButtonComponent label="Create Profile" type="turquoise" onClick={() => CreateProfile()}/>
                     </div>
                 </div>
             </div>

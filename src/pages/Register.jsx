@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Calendar } from "primereact/calendar";
 import { Dropdown } from "primereact/dropdown";
+import ButtonComponent from "../components/ButtonComponent";
 
 const Register = () => {
     const dispatch = useDispatch();
@@ -16,6 +17,10 @@ const Register = () => {
         { name: "Male", code: "m" },
         { name: "Female", code: "fm" },
     ];
+
+    function Register() {
+        navigate("/login");
+    }
 
     return (
         <div className="flex md:flex-row flex-col w-screen h-screen">
@@ -55,14 +60,7 @@ const Register = () => {
                         />
                     </div>
                     <div className="flex flex-col gap-2">
-                        <button
-                            className="text-white bg-turquase rounded-lg py-2 "
-                            onClick={() => {
-                                navigate("/createprofile");
-                            }}
-                        >
-                            Register
-                        </button>
+                    <ButtonComponent label="Register" type="turquoise" onClick={() => Register()}/>
                     </div>
                 </div>
             </div>
