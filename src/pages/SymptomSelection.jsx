@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 import Typewriter from "../components/Typewriter";
 import DropdownComponent from "../components/DropdownComponent";
 import ButtonComponent from "../components/ButtonComponent";
 
 const SymptomSelection = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const diseases = [
         {
@@ -35,6 +36,10 @@ const SymptomSelection = () => {
 
     const customerIsNotWell = "I'm sorry to hear that. Could you tell me what's wrong with you?";
 
+    function Submit() {
+        navigate("/summary");
+    }
+
     return (
         <>
             <div className="grid h-100 mt-5 mb-5">
@@ -57,7 +62,7 @@ const SymptomSelection = () => {
             </div>
             <div className="grid mt-5 mb-5">
                 <div className="col-12 flex justify-center items-center">
-                    <ButtonComponent label="Submit" type="turquoise" onClick={() => {}} />
+                    <ButtonComponent label="Submit" type="turquoise" onClick={() => Submit()} />
                 </div>
             </div>
         </>

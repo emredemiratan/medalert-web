@@ -13,8 +13,8 @@ import SymptomSelection from "./pages/SymptomSelection";
 import CustomComponents from "./pages/CustomComponents";
 import CreateProfile from "./pages/CreateProfile";
 import Profiles from "./pages/Profiles";
-
 import Home from "./pages/Home/Home";
+import Summary from "./pages/Summary";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +63,10 @@ const router = createBrowserRouter([
             {
                 path: "/profiles",
                 element: <Profiles />,
+            },
+            {
+                path: "/summary",
+                element: <Summary />,
             },
         ],
     },

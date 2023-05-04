@@ -69,7 +69,7 @@ const CreateProfile = () => {
         const [selectedMedications, setSelectedMedications] = useState([]);
         
         function CreateProfile() {
-            navigate("/login");
+            navigate("/profiles");
         }
 
     
