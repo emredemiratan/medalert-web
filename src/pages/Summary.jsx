@@ -60,6 +60,7 @@ const Maps = () => {
 	                2 out 10 people….
                     </span>
                 </div>
+                <div className="border border-gray-400 rounded-lg p-4 flex flex-row justify-center ">
                     <LoadScript libraries={["places"]} googleMapsApiKey="AIzaSyABJwOB8DHDvnY4ETA5Sb_jbffDZEGUV4o">
                         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
                             <Autocomplete
@@ -89,6 +90,7 @@ const Maps = () => {
                             </Autocomplete>
                         </GoogleMap>
                     </LoadScript>
+                    </div>
                     <div className="flex flex-row justify-center w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-200">
                         <span>Nearest Hospital</span>
                     </div>
