@@ -4,7 +4,8 @@ import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
-
+import { Panel } from 'primereact/panel';
+        
 
 import { GoogleMap, LoadScript, Autocomplete } from '@react-google-maps/api';
 
@@ -46,20 +47,20 @@ const Maps = () => {
     return (
         <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
+
                 <div className="border border-gray-400 rounded-lg p-4 flex flex-row justify-center bg-cyan-500">
                     <span className="text-zinc-100	text-2xl">SUMMARY</span>
                 </div>
-                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
-                    <span>POSSIBLE COUSES
-                    1) Common Cold
-	                3 out 10 people….
-                    </span>
-                </div>
-                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
-                    <span>2) Viral Sinusitis
-	                2 out 10 people….
-                    </span>
-                </div>
+
+                <Panel header="POSSIBLE COUSES">
+                    <p className="m-0">
+                        1 ) Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi, fugit.<br></br>
+                        2 ) Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, vero!<br></br>
+                        3 ) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, sequi.<br></br>
+                    </p>
+                </Panel>
+
+
                     <LoadScript libraries={["places"]} googleMapsApiKey="AIzaSyABJwOB8DHDvnY4ETA5Sb_jbffDZEGUV4o">
                         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
                             <Autocomplete
