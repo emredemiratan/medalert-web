@@ -15,6 +15,8 @@ import CreateProfile from "./pages/CreateProfile";
 import Profiles from "./pages/Profiles";
 import Home from "./pages/Home/Home";
 import Summary from "./pages/Summary";
+import MyAccount from "./pages/MyAccount";
+import ProfileInformation from "./pages/ProfileInformation";
 
 const router = createBrowserRouter([
     {
@@ -67,6 +69,14 @@ const router = createBrowserRouter([
             {
                 path: "/summary",
                 element: <Summary />,
+            },
+            {
+                path: "/myaccount",
+                element: <MyAccount />,
+            },
+            {
+                path: "/profileinfo",
+                element: <ProfileInformation />,
             },
         ],
     },

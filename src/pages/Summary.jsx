@@ -46,6 +46,7 @@ const Maps = () => {
     return (
         <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
+                
                 <div className="border border-gray-400 rounded-lg p-4 flex flex-row justify-center bg-cyan-500">
                     <span className="text-zinc-100	text-2xl">SUMMARY</span>
                 </div>
