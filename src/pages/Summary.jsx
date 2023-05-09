@@ -45,8 +45,18 @@ const Maps = () => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center">
-            <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
+        <div className="flex flex-col items-center justify-center"style={{ backgroundImage:`url("https://static.vecteezy.com/system/resources/previews/003/127/954/original/abstract-template-blue-background-white-squares-free-vector.jpg")`,
+        backgroundRepeat:"no-repeat",
+        backgroundPosition: 'center',
+        backgroundSize:"cover" ,
+        
+        }}>
+            <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg"style={{ backgroundImage:`url("https://via.placeholder.com/500")`,
+        backgroundRepeat:"no-repeat",
+        backgroundPosition: 'center',
+        backgroundSize:"cover" ,
+        
+        }}>
                 
                 <div className="border border-gray-400 rounded-lg p-4 flex flex-row justify-center bg-cyan-500">
                     <span className="text-zinc-100	text-2xl">SUMMARY</span>
@@ -62,7 +72,7 @@ const Maps = () => {
                     </p>
                 </Panel>
                 
-                <div className="border border-gray-400 rounded-lg p-4 flex flex-row justify-center ">
+                <div className="border border-gray-800 rounded-lg p-4 flex flex-row justify-center ">
                     <LoadScript libraries={["places"]} googleMapsApiKey="AIzaSyABJwOB8DHDvnY4ETA5Sb_jbffDZEGUV4o">
                         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
                             <Autocomplete
