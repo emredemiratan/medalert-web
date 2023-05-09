@@ -13,6 +13,10 @@ const Profiles = () => {
     function CreateProfile() {
         navigate("/createprofile");
     }
+    function MyAccount() {
+        navigate("/myaccount");
+    }
+    
 
     return (
         <div className="flex flex-col items-center justify-center"style={{ backgroundImage:`url("https://static.vecteezy.com/system/resources/previews/003/127/954/original/abstract-template-blue-background-white-squares-free-vector.jpg")`,
@@ -29,6 +33,9 @@ const Profiles = () => {
                     marginTop:"64px",
                     marginBottom:"63px",
                 }}>
+                    <div className="flex items-center justify-end">
+                <Button icon="pi pi-user" rounded text raised severity="info" aria-label="User" onClick={() => MyAccount()} />
+                </div>
 
                     <img style={{
                             borderColor: 'gray',
@@ -88,4 +95,4 @@ const Profiles = () => {
     );
 };
         
-export default Profiles;
+export default Profiles;
