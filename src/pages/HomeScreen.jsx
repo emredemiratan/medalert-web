@@ -35,6 +35,9 @@ const HomeScreen = () => {
                             consectetur adipisicing elit. Aliquid deserunt expedita molestiae nobis
                             optio natus fugiat nostrum! Eius, maxime perspiciatis.
                         </span>
+                        <span>
+                            emre
+                        </span>
                     </div>
                     <div className="flex flex-col gap-2">
                         <button

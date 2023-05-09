@@ -55,6 +55,7 @@ const Maps = () => {
                     1) Common Cold
 	                3 out 10 people….
                     </span>
+                    <span>emre</span>
                 </div>
                 <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
                     <span>2) Viral Sinusitis
