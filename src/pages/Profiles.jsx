@@ -4,6 +4,8 @@ import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
+import MyAccount from "./MyAccount";
+
 
 const Profiles = () => {
     const dispatch = useDispatch();
@@ -13,19 +15,29 @@ const Profiles = () => {
     function CreateProfile() {
         navigate("/createprofile");
     }
+    function MyAccount() {
+        navigate("/myaccount");
+    }
+    
 
     return (
         <div className="flex flex-col items-center justify-center">
                 <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
-                    <img
-                        src={require("../assets/medalert-logo.png")}
-                        alt=""
-                        className="w-1/2 h-1/2 "
-                    />
+                <div className="flex items-center justify-end">
+                <Button icon="pi pi-user" rounded text raised severity="info" aria-label="User" onClick={() => MyAccount()} />
+                </div>
+                <div className="flex items-center justify-center">
+                        <img
+                            src={require("../assets/medalert-logo.png")}
+                            alt=""
+                            className="w-[300px] h-[300px] -m-4 "
+                        />
+                    </div>
+                    
                     <span>Your Profiles:</span>
-                    <div >
+                    <div>
                     <button 
-                    className="flex w-1/3 items-center p-2 border border-black rounded-2xl " 
+                    className="flex w-1/3 items-center p-2 border border-black rounded-2xl bg-cyan-300" 
                     onClick={() => {
                         navigate("/home");
                     }}>
@@ -35,7 +47,7 @@ const Profiles = () => {
                     </button>
                     </div>
                     <div >
-                    <button className="flex w-1/3 items-center p-2 border border-black rounded-2xl " 
+                    <button className="flex w-1/3 items-center p-2 border border-black rounded-2xl bg-cyan-300" 
                     onClick={() => {
                         navigate("/home");
                     }}>
@@ -47,7 +59,7 @@ const Profiles = () => {
                         
                     </div>
                     <div >
-                    <button className="flex w-1/3 items-center p-2 border border-black rounded-2xl " 
+                    <button className="flex w-1/3 items-center p-2 border border-black rounded-2xl bg-cyan-300" 
                     onClick={() => {
                         navigate("/home");
                     }}>

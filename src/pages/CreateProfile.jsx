@@ -77,7 +77,7 @@ const CreateProfile = () => {
     
 
     return (
-        <div className="flex md:flex-row flex-col w-screen h-screen">
+        <form className="flex md:flex-row flex-col w-screen h-screen">
             <div className="h-full md:w-1/2 w-full bg-blue-400 relative">
                 <img src={require("../assets/bg.png")} alt="" className="h-full w-full absolute" />
                 <div className="flex flex-col h-full w-full absolute items-center justify-center">
@@ -175,7 +175,7 @@ const CreateProfile = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     );
 };
 

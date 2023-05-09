@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Typewriter from "../components/Typewriter";
 import DropdownComponent from "../components/DropdownComponent";
 import ButtonComponent from "../components/ButtonComponent";
-
+import { Button } from "primereact/button";
 const SymptomSelection = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -39,33 +39,42 @@ const SymptomSelection = () => {
     function Submit() {
         navigate("/summary");
     }
+    function MyAccount() {
+        navigate("/myaccount");
+    }
 
     return (
-        <>
-            <div className="grid h-100 mt-5 mb-5">
-                <div className="col-12 flex justify-center">
-                    <div className="p-3 flex justify-center border">
-                        <Typewriter text={customerIsNotWell} />
+        <form>
+            <div className="flex flex-col items-center justify-center">
+                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
+                <div className="flex items-center justify-end">
+                    <Button icon="pi pi-user" rounded text raised severity="info" aria-label="User" onClick={() => MyAccount()} />
+                </div>
+                    <div className="grid h-100 mt-5 mb-5">
+                        <div className="col-12 flex justify-center">
+                            <div className="p-3 flex justify-center border">
+                                <Typewriter text={customerIsNotWell} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="grid">
+                        <div className="col-12 flex justify-center items-center">
+                        <input
+                        className="px-4 py-2 rounded-lg border-2 border-green-600"
+                        type="text"
+                        placeholder="Diseases"
+                        />
+                        </div>
+                            
+                    </div>
+                    <div className="grid mt-5 mb-5">
+                        <div className="col-12 flex justify-center items-center">
+                            <ButtonComponent label="Submit" type="turquoise" onClick={() => Submit()} />
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="grid">
-                <div className="col-12 flex justify-center items-center">
-                    <DropdownComponent
-                        value={selectedDiseases}
-                        onChange={(e) => setSelectedDiseases(e.value)}
-                        options={diseases}
-                        optionLabel="name"
-                        placeholder="Select Disease(s)"
-                    />
-                </div>
-            </div>
-            <div className="grid mt-5 mb-5">
-                <div className="col-12 flex justify-center items-center">
-                    <ButtonComponent label="Submit" type="turquoise" onClick={() => Submit()} />
-                </div>
-            </div>
-        </>
+        </form>
     );
 };
 

@@ -17,6 +17,9 @@ import Home from "./pages/Home/Home";
 import Summary from "./pages/Summary";
 import MyAccount from "./pages/MyAccount";
 import ProfileInformation from "./pages/ProfileInformation";
+import MyAdresses from "./pages/MyAdresses";
+import Illnesses from "./pages/Illnesses";
+
 
 const router = createBrowserRouter([
     {
@@ -77,6 +80,14 @@ const router = createBrowserRouter([
             {
                 path: "/profileinfo",
                 element: <ProfileInformation />,
+            },
+            {
+                path: "/myadresses",
+                element: <MyAdresses />,
+            },
+            {
+                path: "/illnesses",
+                element: <Illnesses />,
             },
         ],
     },
