@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { Outlet } from "react-router-dom";
-
+import ButtonComponent from "../components/ButtonComponent";
 import Header from "../components/Header";
 
 const Root = () => {
@@ -21,9 +21,15 @@ const Root = () => {
         //     navigate("/login");
         // }
     }, []);
+    function Login() {
+        navigate("/login");
+    }
 
     return (
         <div className="">
+                                <div className="flex flex-col gap-2">
+                    <ButtonComponent label="Login" type="turquoise" onClick={() => Login()}/>
+                    </div>
             {user.name.length > 0 && <Header />}
             <Outlet />
             {loading && <Loading />}

@@ -38,7 +38,8 @@ const Maps = () => {
     const [searchText, setSearchText] = useState('');
 
     const handlePlaceSelect = (place) => {
-        setSearchText(place.formatted_address);
+        console.log(place)
+        setSearchText(place);
     };
     function StartAgain() {
         navigate("/profiles");
@@ -77,12 +78,14 @@ const Maps = () => {
                         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
                             <Autocomplete
                             onLoad={(autocomplete) => console.log('autocomplete: ', autocomplete)}
-                            onPlaceChanged={() => handlePlaceSelect(autocomplete.getPlace())}>
+                            onPlaceChanged={() => handlePlaceSelect(searchText)}>
                                 <input
                                     type="text"
                                     placeholder="Search location"
                                     value={searchText}
-                                    onChange={(e) => setSearchText(e.target.value)}
+                                    onChange={(e) => {
+                                        setSearchText(e.target.value)
+                                    }}
                                     style={{
                                     boxSizing: `border-box`,
                                     border: `1px solid transparent`,
