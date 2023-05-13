@@ -44,32 +44,43 @@ const SymptomSelection = () => {
     }
 
     return (
-        <form>
+        <form className="h-full w-full blue-bg flex justify-center items-center">
             <div className="flex flex-col items-center justify-center">
-                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-2 rounded-lg">
-                <div className="flex items-center justify-end">
-                    <Button icon="pi pi-user" rounded text raised severity="info" aria-label="User" onClick={() => MyAccount()} />
-                </div>
-                    <div className="grid h-100 mt-5 mb-5">
+                <div className="flex flex-col border-2 border-gray-400 p-3 gap-2 rounded-lg custom-card bg-gray">
+                    {/* <div className="flex items-center justify-end">
+                        <Button
+                            icon="pi pi-user"
+                            rounded
+                            text
+                            raised
+                            severity="info"
+                            aria-label="User"
+                            onClick={() => MyAccount()}
+                        />
+                    </div> */}
+                    <div className="grid h-full w-full mt-5 mb-5">
                         <div className="col-12 flex justify-center">
-                            <div className="p-3 flex justify-center border">
+                            <div className="p-3 flex justify-center border bg-white rounded">
                                 <Typewriter text={customerIsNotWell} />
                             </div>
                         </div>
                     </div>
                     <div className="grid">
                         <div className="col-12 flex justify-center items-center">
-                        <input
-                        className="px-4 py-2 rounded-lg border-2 border-green-600"
-                        type="text"
-                        placeholder="Diseases"
-                        />
+                            <input
+                                className="px-4 py-2 rounded-lg border-2 border-green-600"
+                                type="text"
+                                placeholder="Diseases"
+                            />
                         </div>
-                            
                     </div>
                     <div className="grid mt-5 mb-5">
                         <div className="col-12 flex justify-center items-center">
-                            <ButtonComponent label="Submit" type="turquoise" onClick={() => Submit()} />
+                            <ButtonComponent
+                                label="Submit"
+                                type="turquoise"
+                                onClick={() => Submit()}
+                            />
                         </div>
                     </div>
                 </div>

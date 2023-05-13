@@ -26,10 +26,10 @@ const Root = () => {
     }
 
     return (
-        <div className="">
-                                <div className="flex flex-col gap-2">
-                    <ButtonComponent label="Login" type="turquoise" onClick={() => Login()}/>
-                    </div>
+        <div className="h-[100vh] w-[100vw]">
+            {/* <div className="flex flex-col gap-2">
+                <ButtonComponent label="Login" type="turquoise" onClick={() => Login()} />
+            </div> */}
             {user.name.length > 0 && <Header />}
             <Outlet />
             {loading && <Loading />}

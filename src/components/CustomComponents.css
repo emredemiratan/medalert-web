@@ -1,8 +1,15 @@
 /* buttons */
 .p-button {
-    /* padding: 0 !important; */
-    /* margin: 0 !important; */
+    padding: 0 !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+    margin: 0 !important;
     box-shadow: 3px 3px 5px 0px lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .blue-button {
     background-color: #003fec !important;

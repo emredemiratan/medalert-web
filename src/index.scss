@@ -1,5 +1,3 @@
-
-
 body,
 html {
     margin: 0;
@@ -15,6 +13,39 @@ html {
 }
 .mini-icon {
     height: 30px;
+}
+
+.blue-bg {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/003/127/954/original/abstract-template-blue-background-white-squares-free-vector.jpg");
+    background-repeat: repeat-y;
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-gray {
+    background-image: url("https://media.istockphoto.com/id/1407271745/photo/gray-background.jpg?b=1&s=170667a&w=0&k=20&c=aAk4qTe2O_TAt77Nx9ROXTXyGTgXN0FFn1eep4RkvC0=");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.custom-card {
+    width: 50%;
+}
+@media (max-width: 1024px) {
+    .custom-card {
+        width: 70%;
+    }
+}
+@media (max-width: 762px) {
+    .custom-card {
+        width: 80%;
+    }
+}
+@media (max-width: 512px) {
+    .custom-card {
+        width: 90%;
+    }
 }
 
 .loading-container {
