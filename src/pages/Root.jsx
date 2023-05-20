@@ -15,11 +15,7 @@ const Root = () => {
     const { user } = useSelector((state) => state.user);
 
     useEffect(() => {
-        // if (user.name.length > 0) {
-        //     navigate("/home");
-        // } else {
-        //     navigate("/login");
-        // }
+        //
     }, []);
     function Login() {
         navigate("/login");

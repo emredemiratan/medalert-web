@@ -19,67 +19,61 @@ const CreateProfile = () => {
         { name: "Female", code: "fm" },
     ];
 
-    
-        const diseases = [
-            {
-                id: 0,
-                name: "Nausea",
-            },
-            {
-                id: 1,
-                name: "Headache",
-            },
-            {
-                id: 2,
-                name: "Tremor",
-            },
-            {
-                id: 3,
-                name: "Flu",
-            },
-            {
-                id: 4,
-                name: "Stomach Ache",
-            },
-        ];
-        const [selectedDiseases, setSelectedDiseases] = useState([]);
+    const diseases = [
+        {
+            id: 0,
+            name: "Nausea",
+        },
+        {
+            id: 1,
+            name: "Headache",
+        },
+        {
+            id: 2,
+            name: "Tremor",
+        },
+        {
+            id: 3,
+            name: "Flu",
+        },
+        {
+            id: 4,
+            name: "Stomach Ache",
+        },
+    ];
+    const [selectedDiseases, setSelectedDiseases] = useState([]);
 
-        const medications = [
-            {
-                id: 0,
-                name: "Cough Syrup",
-            },
-            {
-                id: 1,
-                name: "Aspirin",
-            },
-            {
-                id: 2,
-                name: "Blood Pressure Medicine",
-            },
-            {
-                id: 3,
-                name: "Insulin",
-            },
-            {
-                id: 4,
-                name: "Blood Thinner",
-            },
-        ];
-        const [selectedMedications, setSelectedMedications] = useState([]);
-        
-        function CreateProfile() {
-            navigate("/profiles");
-        }
+    const medications = [
+        {
+            id: 0,
+            name: "Cough Syrup",
+        },
+        {
+            id: 1,
+            name: "Aspirin",
+        },
+        {
+            id: 2,
+            name: "Blood Pressure Medicine",
+        },
+        {
+            id: 3,
+            name: "Insulin",
+        },
+        {
+            id: 4,
+            name: "Blood Thinner",
+        },
+    ];
+    const [selectedMedications, setSelectedMedications] = useState([]);
 
-    
-    
-    
+    function CreateProfile() {
+        navigate("/profiles");
+    }
 
     return (
         <form className="flex md:flex-row flex-col w-screen h-screen">
-            <div className="h-full md:w-1/2 w-full bg-blue-400 relative">
-                <img src={require("../assets/bg.png")} alt="" className="h-full w-full absolute" />
+            <div className="h-full md:w-1/2 w-full blue-bg relative md:block hidden">
                 <div className="flex flex-col h-full w-full absolute items-center justify-center">
                     <img
                         src={require("../assets/medalert-logo.png")}
@@ -89,12 +83,18 @@ const CreateProfile = () => {
                 </div>
             </div>
             <div className="flex flex-col md:w-1/2 w-full h-full items-center justify-center overflow-auto">
-                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-1 rounded-lg overflow-y">
+                <div className="flex flex-col custom-card border-2 border-gray-400 p-4 gap-1 rounded-lg max-h-[650px] overflow-scroll">
+                    <div className="flex justify-start">
+                        <button onClick={() => navigate("/profiles")}>
+                            <i className="pi pi-arrow-left mr-3" />
+                            <span>My Profiles</span>
+                        </button>
+                    </div>
                     <div className="flex items-center justify-center">
                         <img
                             src={require("../assets/medalert-logo.png")}
                             alt=""
-                            className="w-[200px] h-[200px] -m-4 "
+                            className="w-[200px] h-[200px] -m-4"
                         />
                     </div>
                     <div className="flex flex-col gap-2">
@@ -135,7 +135,7 @@ const CreateProfile = () => {
                     </div>
                     <span>Gender</span>
                     <div className="flex flex-row gap-2">
-                        <div className="flex flex-row gap-2 items-center">
+                        <div className="flex flex-row w-full gap-2 items-center">
                             <Dropdown
                                 value={selectedGender}
                                 onChange={(e) => setSelectedGender(e.value)}
@@ -148,30 +148,36 @@ const CreateProfile = () => {
                     </div>
                     <span>Extra Diseases</span>
                     <div className="grid">
-                <div className="flex flex-row gap-2 items-center">
-                    <DropdownComponent
-                        value={selectedDiseases}
-                        onChange={(e) => setSelectedDiseases(e.value)}
-                        options={diseases}
-                        optionLabel="name"
-                        placeholder="Select Disease(s)"
-                    />
-                </div>
-            </div>
-            <span>Regularly Used Medications</span>
-                    <div className="grid">
-                <div className="flex flex-row gap-2 items-center">
-                    <DropdownComponent
-                        value={selectedMedications}
-                        onChange={(e) => setSelectedMedications(e.value)}
-                        options={medications}
-                        optionLabel="name"
-                        placeholder="Select Medication(s)"
-                    />
-                </div>
-            </div>
-                    <div className="flex flex-col gap-3">
-                    <ButtonComponent label="Create Profile" type="turquoise" onClick={() => CreateProfile()}/>
+                        <div className="flex flex-row w-full gap-2 items-center">
+                            <DropdownComponent
+                                value={selectedDiseases}
+                                onChange={(e) => setSelectedDiseases(e.value)}
+                                options={diseases}
+                                optionLabel="name"
+                                placeholder="Select Disease(s)"
+                                className="w-full"
+                            />
+                        </div>
+                    </div>
+                    <span>Regularly Used Medications</span>
+                    <div className="grid mb-3">
+                        <div className="flex flex-row w-full gap-2 items-center">
+                            <DropdownComponent
+                                value={selectedMedications}
+                                onChange={(e) => setSelectedMedications(e.value)}
+                                options={medications}
+                                optionLabel="name"
+                                placeholder="Select Medication(s)"
+                                className="w-full"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 mb-5">
+                        <ButtonComponent
+                            label="Create Profile"
+                            type="turquoise"
+                            onClick={() => CreateProfile()}
+                        />
                     </div>
                 </div>
             </div>

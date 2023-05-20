@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Typewriter from "../components/Typewriter";
 import DropdownComponent from "../components/DropdownComponent";
 import ButtonComponent from "../components/ButtonComponent";
-import { Button } from "primereact/button";
+
 const SymptomSelection = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -39,28 +39,14 @@ const SymptomSelection = () => {
     function Submit() {
         navigate("/summary");
     }
-    function MyAccount() {
-        navigate("/myaccount");
-    }
 
     return (
-        <form className="h-full w-full blue-bg flex justify-center items-center">
-            <div className="flex flex-col items-center justify-center">
-                <div className="flex flex-col border-2 border-gray-400 p-3 gap-2 rounded-lg custom-card bg-gray">
-                    {/* <div className="flex items-center justify-end">
-                        <Button
-                            icon="pi pi-user"
-                            rounded
-                            text
-                            raised
-                            severity="info"
-                            aria-label="User"
-                            onClick={() => MyAccount()}
-                        />
-                    </div> */}
-                    <div className="grid h-full w-full mt-5 mb-5">
+        <form className="h-full w-full blue-bg flex">
+            <div className="flex flex-col items-center justify-center h-full w-full">
+                <div className="flex flex-col border-2 border-gray-400 p-3 gap-2 rounded-lg custom-card bg-white opacity-90">
+                    <div className="grid h-full mt-5 mb-5">
                         <div className="col-12 flex justify-center">
-                            <div className="p-3 flex justify-center border bg-white rounded">
+                            <div className="p-3  border bg-white rounded">
                                 <Typewriter text={customerIsNotWell} />
                             </div>
                         </div>

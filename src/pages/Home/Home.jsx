@@ -7,7 +7,7 @@ import { Button } from "primereact/button";
 import Typewriter from "../../components/Typewriter";
 import ButtonComponent from "../../components/ButtonComponent";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import client from "../../client";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -35,47 +35,14 @@ const Home = () => {
 
     useEffect(() => {
         console.log("page rendered");
-        axios
-            .get("https://dummyjson.com/products")
-            .then((res) => {
-                console.log(res.data);
-                setProducts(res.data.products);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally(() => {
-                console.log("done");
-            });
-
-        axios
-            .post("https://dummyjson.com/products", { title: "zort" })
-            .then((res) => {
-                //
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally(() => {
-                console.log("done");
-            });
+        client("GET", "/account/");
+        // client("POST", "/account/register", { username: "fatihtest", password: "123123" });
     }, []);
 
     return (
         <form className="h-full w-full blue-bg">
             <div className="flex flex-col items-center justify-center h-full w-full">
                 <div className="flex flex-col border-2 border-gray-400 p-4 gap-2 rounded-lg bg-white opacity-90 custom-card">
-                    {/* <div className="flex items-center justify-end">
-                        <Button
-                            icon="pi pi-user"
-                            rounded
-                            text
-                            raised
-                            severity="info"
-                            aria-label="User"
-                            onClick={() => MyAccount()}
-                        />
-                    </div> */}
                     <div className="grid h-full mt-5 mb-5">
                         <div className="col-12 flex justify-center">
                             <div className="p-3 flex justify-center border">

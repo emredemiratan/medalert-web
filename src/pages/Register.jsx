@@ -24,8 +24,7 @@ const Register = () => {
 
     return (
         <div className="flex md:flex-row flex-col w-screen h-screen">
-            <div className="h-full md:w-1/2 w-full bg-blue-400 relative">
-                <img src={require("../assets/bg.png")} alt="" className="h-full w-full absolute" />
+            <div className="h-full md:w-1/2 w-full blue-bg relative md:block hidden">
                 <div className="flex flex-col h-full w-full absolute items-center justify-center">
                     <img
                         src={require("../assets/medalert-logo.png")}
@@ -35,7 +34,7 @@ const Register = () => {
                 </div>
             </div>
             <div className="flex flex-col md:w-1/2 w-full h-full items-center justify-center overflow-auto">
-                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-3 rounded-lg overflow-y">
+                <div className="flex flex-col border-2 custom-card p-4 gap-3 rounded-lg overflow-y">
                     <div className="flex items-center justify-center">
                         <img
                             src={require("../assets/medalert-logo.png")}
@@ -60,7 +59,11 @@ const Register = () => {
                         />
                     </div>
                     <div className="flex flex-col gap-2">
-                    <ButtonComponent label="Register" type="turquoise" onClick={() => Register()}/>
+                        <ButtonComponent
+                            label="Register"
+                            type="turquoise"
+                            onClick={() => Register()}
+                        />
                     </div>
                 </div>
             </div>

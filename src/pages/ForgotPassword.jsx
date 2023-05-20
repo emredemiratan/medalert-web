@@ -16,24 +16,22 @@ const ForgotPassword = () => {
 
     return (
         <div className="flex md:flex-row flex-col w-screen h-screen">
-            <div className="h-full md:w-1/2 w-full bg-blue-400 relative">
-                <img src={require("../assets/bg.png")} alt="" className="h-full w-full absolute" />
+            <div className="h-full md:w-1/2 w-full blue-bg md:block hidden relative">
                 <div className="flex flex-col h-full w-full absolute items-center justify-center">
                     <img
                         src={require("../assets/medalert-logo.png")}
                         alt=""
-                        className="w-1/4 h-1/4  "
+                        className="w-[200px] h-[200px]"
                     />
                 </div>
             </div>
             <div className="flex flex-col md:w-1/2 w-full h-full items-center justify-center">
-                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-4 rounded-lg">
+                <div className="flex flex-col custom-card border-2 border-gray-400 p-4 gap-4 rounded-lg justify-center items-center">
                     <img
                         src={require("../assets/medalert-logo.png")}
                         alt=""
                         className="w-1/2 h-1/2 -m-4 "
                     />
-
                     <div className="flex flex-col items-center">
                         <span>
                             Enter the email address associated with your account. We will email you
@@ -48,7 +46,11 @@ const ForgotPassword = () => {
                         />
                     </div>
                     <div className="flex flex-col gap-2">
-                    <ButtonComponent label="Send" type="turquoise" onClick={() => ForgotPassword()}/>
+                        <ButtonComponent
+                            label="Send"
+                            type="turquoise"
+                            onClick={() => ForgotPassword()}
+                        />
                     </div>
                 </div>
             </div>

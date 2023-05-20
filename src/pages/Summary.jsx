@@ -4,6 +4,7 @@ import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
+import Typewriter from "../components/Typewriter";
 import { Panel } from "primereact/panel";
 
 import { GoogleMap, LoadScript, Autocomplete } from "@react-google-maps/api";
@@ -52,11 +53,15 @@ const Maps = () => {
                 backgroundSize: "cover",
             }}
         >
-            <div className="flex mt-5 flex-col border-2 border-gray-400 p-4 gap-2 rounded-lg custom-card bg-gray">
+            <div className="flex mt-5 flex-col border-2 border-gray-400 p-4 gap-2 rounded-lg custom-card gray-bg mb-5">
                 <div className="border border-gray-400 rounded-lg p-4 flex flex-row justify-center bg-cyan-500">
                     <span className="text-zinc-100	text-2xl">SUMMARY</span>
                 </div>
-
+                <div className="flex flex-col border-2 border-gray-400 p-2 rounded-lg bg-white opacity-90">
+                    <div className="p-3 flex justify-center">
+                        <Typewriter text="Here are some possible causes I've gathered for you. And some of the nearest hospitals and pharmacies. In case you need it. Hope you'll feel better soon..." />
+                    </div>
+                </div>
                 <Panel header="Possible Causes">
                     <p className="m-0">
                         1) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,

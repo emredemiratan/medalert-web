@@ -6,8 +6,8 @@ export const globalSlice = createSlice({
         loading: false,
     },
     reducers: {
-        switchLoadingStatus: (state) => {
-            state.loading = !state.loading;
+        switchLoadingStatus: (state, action) => {
+            state.loading = action.payload;
         },
     },
 });

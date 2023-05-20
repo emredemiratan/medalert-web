@@ -1,23 +1,22 @@
 import React from "react";
 
-import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 
 const Login = () => {
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
+
+    const { loading } = useSelector((state) => state.global);
+
     function Login() {
         navigate("/profiles");
     }
 
-
     return (
         <div className="flex md:flex-row flex-col w-screen h-screen">
-            <div className="h-full md:w-1/2 w-full bg-blue-400 relative">
-                <img src={require("../assets/bg.png")} alt="" className="h-full w-full absolute" />
+            <div className="h-full md:w-1/2 w-full blue-bg relative md:block hidden">
                 <div className="flex flex-col h-full w-full absolute items-center justify-center">
                     <img
                         src={require("../assets/medalert-logo.png")}
@@ -26,8 +25,8 @@ const Login = () => {
                     />
                 </div>
             </div>
-            <div className="flex flex-col md:w-1/2 w-full h-full items-center justify-center">
-                <div className="flex flex-col w-1/2 border-2 border-gray-400 p-4 gap-4 rounded-lg">
+            <div className="flex flex-col md:w-1/2 md:blue-bg w-full h-full items-center justify-center">
+                <div className="flex flex-col custom-card border-2 border-gray-400 p-4 gap-4 rounded-lg">
                     <div className="flex items-center justify-center">
                         <img
                             src={require("../assets/medalert-logo.png")}
@@ -62,7 +61,7 @@ const Login = () => {
                         </span>
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                    <ButtonComponent label="Login" type="turquoise" onClick={() => Login()} />
+                        <ButtonComponent label="Login" type="turquoise" onClick={() => Login()} />
                     </div>
                     <div className="flex flex-col items-center">
                         <span>Not a Member? </span>

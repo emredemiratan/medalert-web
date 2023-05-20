@@ -6,7 +6,6 @@ import ErrorPage from "./pages/ErrorPage";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import Register from "./pages/Register";
-import HomeScreen from "./pages/HomeScreen";
 import AcceptScreen from "./pages/AcceptScreen";
 import SymptomSelection from "./pages/SymptomSelection";
 
@@ -19,7 +18,6 @@ import MyAccount from "./pages/MyAccount";
 import ProfileInformation from "./pages/ProfileInformation";
 import MyAdresses from "./pages/MyAdresses";
 import Illnesses from "./pages/Illnesses";
-
 
 const router = createBrowserRouter([
     {
@@ -47,10 +45,6 @@ const router = createBrowserRouter([
                 path: "/components",
                 element: <CustomComponents />,
             },
-            // {
-            //     path: "/homescreen",
-            //     element: <HomeScreen />,
-            // },
             {
                 path: "/acceptscreen",
                 element: <AcceptScreen />,
