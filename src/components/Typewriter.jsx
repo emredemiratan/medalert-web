@@ -12,7 +12,7 @@ function Typewriter(props) {
         const timer = setInterval(() => {
             setDisplayText(text.substring(0, textIndex));
             setTextIndex(textIndex + 1);
-        }, 75);
+        }, 30);
 
         return () => {
             clearInterval(timer);

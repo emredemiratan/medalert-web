@@ -14,7 +14,7 @@ const ProfileInformation = () => {
     return (
         <div className="8px">
             <div className="flex h-full  w-full items-center justify-center blue-bg ">
-            <div className="flex flex-col items-center w-1/2 border-2 gray-bg border-gray-400 p-4 gap-4 rounded-lg">
+            <div className="flex flex-col items-center w-1/2 mt-5 mb-5 border-2 gray-bg border-gray-400 p-4 gap-4 rounded-lg">
                 <div className="flex w-full justify-start items-center">
                     <button onClick={() => navigate("/myAccount")}>
                         <i className="pi pi-arrow-left mr-3" />
