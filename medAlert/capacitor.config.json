@@ -1,0 +1,11 @@
+{
+  "appId": "medalert.com",
+  "appName": "medAlert",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
