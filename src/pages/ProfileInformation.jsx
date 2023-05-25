@@ -12,8 +12,9 @@ const ProfileInformation = () => {
     const [date, setDate] = useState();
 
     return (
-        <div className="flex flex-col items-center ">
-            <div className="flex flex-col items-center custom-card mb-5 border-2 border-gray-400 p-4 gap-4 rounded-lg">
+        <div className="8px">
+            <div className="flex h-full  w-full items-center justify-center blue-bg ">
+            <div className="flex flex-col items-center w-1/2 border-2 gray-bg border-gray-400 p-4 gap-4 rounded-lg">
                 <div className="flex w-full justify-start items-center">
                     <button onClick={() => navigate("/myAccount")}>
                         <i className="pi pi-arrow-left mr-3" />
@@ -29,7 +30,7 @@ const ProfileInformation = () => {
                         />
                     </div>
                 </div>
-                <div className="mx-auto sm:w-1/2 w-5/6">
+                <div className="mx-auto sm:w-1/2 ">
                     <div className="flex flex-row items-end">
                         <span>Name</span>
                     </div>
@@ -81,6 +82,9 @@ const ProfileInformation = () => {
                 </div>
             </div>
         </div>
+
+        </div>
+        
     );
 };
 

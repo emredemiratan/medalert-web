@@ -29,7 +29,7 @@ const Illnesses = () => {
             />
           </div>
         </div>
-        <div className="mx-auto w-1/2">
+        <div className="mx-auto w-1/2 w-5/6">
           <div className="flex flex-row items-end">
             <span>Illnesses</span>
           </div>
