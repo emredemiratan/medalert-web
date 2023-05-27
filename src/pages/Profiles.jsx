@@ -67,7 +67,7 @@ const Profiles = () => {
                   key={profile.id}
                 >
                   <button
-                    className="flex w-11/12 items-center p-2 border border-black rounded-2xl justify-center"
+                    className="flex w-11/12 items-center p-2 border border-black bg-color-red rounded-2xl justify-center"
                     onClick={() => {
                       navigate("/home");
                     }}

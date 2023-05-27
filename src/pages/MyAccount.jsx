@@ -21,6 +21,12 @@ const MyAccount = () => {
     return (
         <div className="flex flex-row justify-center items-center h-full w-full blue-bg">
             <div className="flex flex-col items-center custom-card gray-bg border-2 p-5 gap-4 rounded-lg">
+            <div className="flex w-full justify-start items-center">
+                    <button onClick={() => navigate("/home")}>
+                        <i className="pi pi-arrow-left mr-3" />
+                        <span>Home</span>
+                    </button>
+                </div>
                 <div className="flex flex-wrap justify-center">
                     <div className="w-6/12 sm:w-4/12 px-4">
                         <img
