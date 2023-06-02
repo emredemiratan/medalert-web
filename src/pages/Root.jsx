@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Loading from "../components/Loading";
 import { useSelector } from "react-redux";
@@ -14,19 +14,27 @@ const Root = () => {
     const { loading } = useSelector((state) => state.global);
     const { user } = useSelector((state) => state.user);
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
     useEffect(() => {
         //
     }, []);
-    function Login() {
-        navigate("/login");
+
+    useEffect(() => {
+        checkToken();
+    }, [isLoggedIn, localStorage.getItem("_token")]);
+
+    function checkToken() {
+        if (!localStorage.getItem("_token")) {
+            setIsLoggedIn(false);
+        } else {
+            setIsLoggedIn(true);
+        }
     }
 
     return (
         <div className="h-[100vh] w-[100vw]">
-            {/* <div className="flex flex-col gap-2">
-                <ButtonComponent label="Login" type="turquoise" onClick={() => Login()} />
-            </div> */}
-            {user.name.length > 0 && <Header />}
+            {isLoggedIn && <Header />}
             <Outlet />
             {loading && <Loading />}
         </div>

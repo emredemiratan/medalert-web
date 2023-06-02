@@ -18,6 +18,7 @@ import MyAccount from "./pages/MyAccount";
 import ProfileInformation from "./pages/ProfileInformation";
 import MyAdresses from "./pages/MyAdresses";
 import Illnesses from "./pages/Illnesses";
+import Questions from "./pages/Questions";
 
 const router = createBrowserRouter([
     {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
             {
                 path: "/illnesses",
                 element: <Illnesses />,
+            },
+            {
+                path: "/questions",
+                element: <Questions />,
             },
         ],
     },
