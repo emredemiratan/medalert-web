@@ -57,7 +57,7 @@ const Home = () => {
                         <div className="col-12 flex justify-center items-center">
                             <ButtonComponent
                                 label="I'm not feeling well."
-                                type="turquoise"
+                                type="lightblue"
                                 onClick={() => notFeelingWell()}
                             />
                         </div>

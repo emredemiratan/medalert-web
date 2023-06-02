@@ -105,7 +105,7 @@ const Login = () => {
                         </span>
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <ButtonComponent label="Login" type="turquoise" onClick={() => Login()} />
+                        <ButtonComponent label="Login" type="lightblue" onClick={() => Login()} />
                     </div>
                     <div className="flex flex-col items-center">
                         <span>Not a Member? </span>

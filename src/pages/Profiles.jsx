@@ -89,7 +89,7 @@ const Profiles = () => {
           <div className="col-12 flex justify-center items-center">
             <ButtonComponent
               label="New Profile"
-              type="turquoise"
+              type="lightblue"
               onClick={() => CreateProfile()}
             />
           </div>
