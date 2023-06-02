@@ -1,25 +1,44 @@
 import React, { useState } from "react";
-
-import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Calendar } from "primereact/calendar";
-import { Dropdown } from "primereact/dropdown";
+
+import axios from "axios";
+
 import ButtonComponent from "../components/ButtonComponent";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
-    const [date, setDate] = useState();
-    const [selectedCity, setSelectedCity] = useState(null);
-    const cities = [
-        { name: "Male", code: "m" },
-        { name: "Female", code: "fm" },
-    ];
+
+    const { loading } = useSelector((state) => state.global);
+
+    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     function Register() {
-        navigate("/login");
+        console.log(email);
+        console.log(username);
+        console.log(password);
+
+        const registerData = {
+            email,
+            username,
+            password,
+        };
+
+        axios
+            .post("http://3.78.3.122:8000/account/register", registerData)
+            .then((res) => {
+                console.log(res);
+                toast.success("Register success!");
+                navigate("/login");
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error(err.message);
+            });
     }
 
     return (
@@ -48,6 +67,22 @@ const Register = () => {
                             className="px-4 py-2 rounded-lg border-2 border-green-600"
                             type="email"
                             placeholder="Please Enter Your Email"
+                            value={email}
+                            onChange={(e) => {
+                                setEmail(e.target.value);
+                            }}
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <span>Username</span>
+                        <input
+                            className="px-4 py-2 rounded-lg border-2 border-green-600"
+                            type="text"
+                            placeholder="Please Enter Your Username"
+                            value={username}
+                            onChange={(e) => {
+                                setUsername(e.target.value);
+                            }}
                         />
                     </div>
                     <div className="flex flex-col gap-2">
@@ -56,6 +91,10 @@ const Register = () => {
                             className="px-4 py-2 rounded-lg border-2 border-green-600"
                             type="password"
                             placeholder="Please Enter Your Password"
+                            value={password}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                            }}
                         />
                     </div>
                     <div className="flex flex-col gap-2">

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 import Header from "../components/Header";
+import { Toaster } from "react-hot-toast";
 
 const Root = () => {
     const navigate = useNavigate();
@@ -37,6 +38,7 @@ const Root = () => {
             {isLoggedIn && <Header />}
             <Outlet />
             {loading && <Loading />}
+            <Toaster />
         </div>
     );
 };
