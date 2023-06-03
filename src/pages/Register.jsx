@@ -102,7 +102,7 @@ const Register = () => {
                     <div className="flex flex-col gap-2">
                         <ButtonComponent
                             label="Register"
-                            type="turquoise"
+                            type="lightblue"
                             onClick={() => Register()}
                         />
                     </div>

@@ -25,6 +25,7 @@ const Questions = () => {
             value: false,
             response: "",
             inputType: "SLIDER",
+            
         },
         {
             id: 1,
@@ -108,11 +109,13 @@ const Questions = () => {
                                                 label="No"
                                                 icon="pi-times"
                                                 onClick={() => handleNext()}
+                                                type="red"
                                             />
                                             <ButtonComponent
                                                 label="Submit"
                                                 icon="pi-check"
                                                 onClick={() => handleNext()}
+                                                type="turquoise"
                                             />
                                         </div>
                                     </div>
@@ -121,12 +124,14 @@ const Questions = () => {
                         </div>
                         <div className="col-12 mb-3 flex items-center justify-center">
                             <ButtonComponent
+                                className="text-white"
                                 label={
                                     questions[order].inputType === "SLIDER"
                                         ? "Next Question"
                                         : "I don't have an answer"
                                 }
                                 onClick={() => handleNext()}
+                                type="lightblue"
                             />
                         </div>
                     </div>

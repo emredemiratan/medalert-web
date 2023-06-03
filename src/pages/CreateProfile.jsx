@@ -87,7 +87,7 @@ const CreateProfile = () => {
           <div className="flex justify-start">
             <button onClick={() => navigate("/profiles")}>
               <i className="pi pi-arrow-left mr-3" />
-              <span>My Profiles</span>
+              <span>My Profile(s)</span>
             </button>
           </div>
           <div className="flex items-center justify-center">
@@ -180,7 +180,7 @@ const CreateProfile = () => {
           <div className="flex flex-col gap-3 mb-5">
             <ButtonComponent
               label="Create Profile"
-              type="turquoise"
+              type="lightblue"
               onClick={() => CreateProfile()}
             />
           </div>

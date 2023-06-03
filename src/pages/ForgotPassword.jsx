@@ -48,7 +48,7 @@ const ForgotPassword = () => {
                     <div className="flex flex-col gap-2">
                         <ButtonComponent
                             label="Send"
-                            type="turquoise"
+                            type="lightblue"
                             onClick={() => ForgotPassword()}
                         />
                     </div>

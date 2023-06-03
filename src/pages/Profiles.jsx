@@ -59,7 +59,7 @@ const Profiles = () => {
         </div>
         <span className="ml-5">Your Profiles:</span>
         <div className="col-12 max-h-[300px] overflow-scroll p-3">
-          <div className="grid grid-cols-3 flex-col flex-wrap">
+          <div className="grid md:grid-cols-3 grid-col-6 flex-col flex-wrap">
             {profiles.map((profile) => {
               return (
                 <div
@@ -67,16 +67,17 @@ const Profiles = () => {
                   key={profile.id}
                 >
                   <button
-                    className="flex w-11/12 items-center p-2 border border-black bg-color-red rounded-2xl justify-center"
+                    className="flex w-11/12 items-center p-2 border border-black bg-white text-blue-600 rounded-2xl justify-center"
                     onClick={() => {
                       navigate("/home");
                     }}
                   >
-                    <img
+                    {/*<img
                       src="/static/media/user-icon.9e4745a27351f6317a61.png"
                       alt={profile.name}
                       className="mini-icon mx-2 my-1"
-                    />
+                  />*/}
+                  <i className="pi pi-user mr-2 text-xl text-blue-600"></i>
                     <span>{profile.name}</span>
                   </button>
                 </div>
