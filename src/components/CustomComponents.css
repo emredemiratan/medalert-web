@@ -63,6 +63,19 @@
     top: 1px !important;
 }
 
+.red-button {
+    background-color: #ff0709 !important;
+    border: 2px solid #d30002 !important;
+    color: black !important;
+}
+.red-button:hover {
+    background-color: #ff3133 !important;
+}
+.red-button:active {
+    position: relative !important ;
+    top: 1px !important;
+}
+
 .p-dropdown {
     padding: 0 !important;
 }

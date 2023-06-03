@@ -24,12 +24,14 @@ const Register = () => {
 
         const registerData = {
             email,
-            username,
+            // username,
             password,
         };
 
         axios
-            .post("http://3.78.3.122:8000/account/register", registerData)
+            .post("http://3.78.3.122:8000/account/register", registerData, {
+                headers: { "Content-Type": "application/json" },
+            })
             .then((res) => {
                 console.log(res);
                 toast.success("Register success!");
