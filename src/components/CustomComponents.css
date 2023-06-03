@@ -66,7 +66,7 @@
 .red-button {
     background-color: #ff0709 !important;
     border: 2px solid #d30002 !important;
-    color: black !important;
+    color: white !important;
 }
 .red-button:hover {
     background-color: #ff3133 !important;
