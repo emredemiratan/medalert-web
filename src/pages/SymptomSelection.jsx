@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Typewriter from "../components/Typewriter";
 import DropdownComponent from "../components/DropdownComponent";
 import ButtonComponent from "../components/ButtonComponent";
+import axios from "axios";
+import { useEffect } from "react";
 
 const SymptomSelection = () => {
     const dispatch = useDispatch();
@@ -12,31 +14,23 @@ const SymptomSelection = () => {
     const [selectedGender, setSelectedGender] = useState(null);
     const genders = [{ name: "Disease", code: "d" }];
 
-    const diseases = [
-        {
-            id: 0,
-            name: "Nausea",
-        },
-        {
-            id: 1,
-            name: "Headache",
-        },
-        {
-            id: 2,
-            name: "Tremor",
-        },
-        {
-            id: 3,
-            name: "Flu",
-        },
-        {
-            id: 4,
-            name: "Stomach Ache",
-        },
-    ];
+    const [diseases, setDiseases] = useState([]);
+
     const [selectedDiseases, setSelectedDiseases] = useState([]);
 
     const customerIsNotWell = "I'm sorry to hear that. Could you tell me what's wrong with you?";
+
+    useEffect(() => {
+        axios
+            .get("http://3.78.3.122:8000/symptoms/")
+            .then((res) => {
+                console.log(res.data);
+                setDiseases(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     function Submit() {
         navigate("/questions");

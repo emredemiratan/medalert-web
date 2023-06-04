@@ -23,15 +23,13 @@ const Register = () => {
         console.log(password);
 
         const registerData = {
-            email,
+            email: email,
             // username,
-            password,
+            password: password,
         };
 
         axios
-            .post("http://3.78.3.122:8000/account/register", registerData, {
-                headers: { "Content-Type": "application/json" },
-            })
+            .post("http://3.78.3.122:8000/account/register/", registerData)
             .then((res) => {
                 console.log(res);
                 toast.success("Register success!");

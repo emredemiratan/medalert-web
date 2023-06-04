@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,8 @@ import ButtonComponent from "../components/ButtonComponent";
 import Typewriter from "../components/Typewriter";
 import { Panel } from "primereact/panel";
 
-import { GoogleMap, LoadScript, Autocomplete } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Autocomplete, Marker } from "@react-google-maps/api";
+import axios from "axios";
 
 const containerStyle = {
     width: "100%",
@@ -21,6 +22,32 @@ const center = {
 const Maps = () => {
     const [autocomplete, setAutocomplete] = useState(null);
     const [location, setLocation] = useState("");
+
+    const [hospitals, setHospitals] = useState([]);
+    const [pharmacies, setPharmacies] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get("https://ipapi.co/json")
+            .then((res) => {
+                axios
+                    .post(process.env.REACT_APP_BASE_URL + "/location/", {
+                        latitude: res.data.latitude,
+                        longitude: res.data.longitude,
+                    })
+                    .then((res) => {
+                        console.log(res.data);
+                        setHospitals(res.data.hospitals);
+                        setPharmacies(res.data.pharmacies);
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     const onLoad = (autocomplete) => {
         setAutocomplete(autocomplete);
@@ -107,14 +134,52 @@ const Maps = () => {
                                     }}
                                 />
                             </Autocomplete>
+                            {hospitals.map((hospital) => {
+                                return (
+                                    <Marker
+                                        key={hospital.name}
+                                        position={{
+                                            lat: parseFloat(hospital.latitude),
+                                            lng: parseFloat(hospital.longitude),
+                                        }}
+                                        // onClick={() => props.onMarkerClick(marker)}
+                                    />
+                                );
+                            })}
+                            {pharmacies.map((pharmacy) => {
+                                return (
+                                    <Marker
+                                        key={pharmacy.name}
+                                        position={{
+                                            lat: parseFloat(pharmacy.latitude),
+                                            lng: parseFloat(pharmacy.longitude),
+                                        }}
+                                        // onClick={() => props.onMarkerClick(marker)}
+                                    />
+                                );
+                            })}
                         </GoogleMap>
                     </LoadScript>
                 </div>
-                <div className="col-12 flex justify-center self-center custom-card border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-200">
-                    <span>Nearest Hospital</span>
+                <div className="col-12 flex flex-col justify-center self-center border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-200">
+                    <span className="text-lg">Nearest Hospital</span>
+                    <div className="flex w-full flex-wrap">
+                        <ul>
+                            {hospitals.map((hospital) => {
+                                return <li className="mb-1"> • {hospital.name}</li>;
+                            })}
+                        </ul>
+                    </div>
                 </div>
-                <div className="flex flex-row justify-center self-center custom-card border-2 border-gray-400 p-4 gap-2 rounded-lg bg-red-200">
-                    <span>Nearest Pharmacy</span>
+                <div className="flex flex-col flex-row justify-center self-center border-2 border-gray-400 p-4 gap-2 rounded-lg bg-red-200">
+                    <span className="text-lg">Nearest Pharmacy</span>
+                    <div className="flex w-full flex-wrap">
+                        <ul>
+                            {pharmacies.map((pharmacy) => {
+                                return <li className="mb-1"> • {pharmacy.name}</li>;
+                            })}
+                        </ul>
+                    </div>
                 </div>
                 <div className="flex flex-col self-end">
                     <Callto phone="+905077369888">
