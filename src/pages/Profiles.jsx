@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 import axios from "axios";
+import { setUser } from "../store/slices/userSlice";
 
 const Profiles = () => {
     const dispatch = useDispatch();
@@ -32,28 +33,11 @@ const Profiles = () => {
         navigate("/myaccount");
     }
 
-    // const profiles = [
-    //   {
-    //     id: "1",
-    //     name: "John",
-    //     surname: "Doe",
-    //   },
-    //   {
-    //     id: "2",
-    //     name: "John",
-    //     surname: "Doe",
-    //   },
-    //   {
-    //     id: "3",
-    //     name: "John",
-    //     surname: "Doe",
-    //   },
-    //   {
-    //     id: "4",
-    //     name: "John",
-    //     surname: "Doe",
-    //   },
-    // ];
+    const handleProfileSelection = async (profile) => {
+        console.log(profile);
+        await dispatch(setUser(profile));
+        navigate("/home");
+    };
 
     return (
         <div className="flex flex-row h-full w-full items-start justify-center blue-bg">
@@ -84,7 +68,7 @@ const Profiles = () => {
                                     <button
                                         className="flex w-11/12 items-center p-2 border border-black bg-white text-blue-600 rounded-2xl justify-center"
                                         onClick={() => {
-                                            navigate("/home");
+                                            handleProfileSelection(profile);
                                         }}
                                     >
                                         <i className="pi pi-user mr-2 text-xl text-blue-600"></i>

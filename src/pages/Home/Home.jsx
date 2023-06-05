@@ -12,7 +12,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const user = useSelector((state) => state.user);
+    const { user } = useSelector((state) => state.user);
 
     const [products, setProducts] = useState([]);
 
@@ -33,8 +33,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        console.log("page rendered");
-        // client("POST", "/account/register", { username: "fatihtest", password: "123123" });
+        //
     }, []);
 
     return (

@@ -8,6 +8,7 @@ import { Outlet } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 import Header from "../components/Header";
 import { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 const Root = () => {
     const navigate = useNavigate();
@@ -18,7 +19,13 @@ const Root = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        //
+        if (checkToken()) {
+            setIsLoggedIn(true);
+            navigate("/profiles");
+        } else {
+            setIsLoggedIn(false);
+            navigate("/login");
+        }
     }, []);
 
     useEffect(() => {
@@ -26,16 +33,16 @@ const Root = () => {
     }, [isLoggedIn, localStorage.getItem("_token")]);
 
     function checkToken() {
-        if (!localStorage.getItem("_token")) {
-            setIsLoggedIn(false);
+        if (localStorage.getItem("_token")) {
+            return true;
         } else {
-            setIsLoggedIn(true);
+            return false;
         }
     }
 
     return (
-        <div className="h-[100vh] w-[100vw]">
-            {isLoggedIn && <Header />}
+        <div className="max-w-[100vw] h-[100vh] w-full overflow-x-hidden">
+            {user.name.length > 0 && <Header />}
             <Outlet />
             {loading && <Loading />}
             <Toaster />

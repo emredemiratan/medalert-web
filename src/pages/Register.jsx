@@ -24,7 +24,6 @@ const Register = () => {
 
         const registerData = {
             email: email,
-            // username,
             password: password,
         };
 

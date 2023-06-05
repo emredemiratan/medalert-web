@@ -9,7 +9,8 @@ const ProfileInformation = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
-    const [date, setDate] = useState();
+
+    const { user } = useSelector((state) => state.user);
 
     return (
         <div className="8px">
@@ -35,49 +36,49 @@ const ProfileInformation = () => {
                             <span>Name</span>
                         </div>
                         <div className="flex flex-row mx-auto border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>Name</span>
+                            <span>{user.name}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Surname</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>Surname</span>
+                            <span>{user.surname}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Phone Number</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>Phone Number</span>
+                            <span>{user.phone_number}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Email</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>Email</span>
+                            <span>{user.email}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Date of Birth</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>Date of Birth</span>
+                            <span>{user.birthdate}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Gender</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>Gender</span>
+                            {user.gender === "M" ? <span>Male</span> : <span>Female</span>}
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Extra Diseases</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>Extra Diseases</span>
+                            <span> - </span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Regulary Used Medications</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>Regulary Used Medications</span>
+                            <span> - </span>
                         </div>
                     </div>
                 </div>

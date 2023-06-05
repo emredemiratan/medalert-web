@@ -15,13 +15,12 @@ const containerStyle = {
     height: "400px",
 };
 
-const center = {
-    lat: 36.8969,
-    lng: 30.7133,
-};
 const Maps = () => {
     const [autocomplete, setAutocomplete] = useState(null);
     const [location, setLocation] = useState("");
+
+    const [latitude, setLatitude] = useState();
+    const [longitude, setLongitude] = useState();
 
     const [hospitals, setHospitals] = useState([]);
     const [pharmacies, setPharmacies] = useState([]);
@@ -30,8 +29,10 @@ const Maps = () => {
         axios
             .get("https://ipapi.co/json")
             .then((res) => {
+                setLatitude(res.data.latitude);
+                setLongitude(res.data.longitude);
                 axios
-                    .post(process.env.REACT_APP_BASE_URL + "/location/", {
+                    .post("http://3.78.3.122:8000/location/", {
                         latitude: res.data.latitude,
                         longitude: res.data.longitude,
                     })
@@ -75,7 +76,7 @@ const Maps = () => {
 
     return (
         <div className="flex flex-col items-center justify-center blue-bg">
-            <div className="flex mt-5 flex-col border-2 border-gray-400 p-4 gap-2 rounded-lg custom-card gray-bg mb-5">
+            <div className="grid mt-5 flex-col border-2 border-gray-400 p-4 gap-2 rounded-lg custom-card gray-bg mb-5">
                 <div className="border border-gray-400 rounded-lg p-4 flex flex-row justify-center bg-cyan-500">
                     <span className="text-zinc-100	text-2xl">SUMMARY</span>
                 </div>
@@ -103,7 +104,11 @@ const Maps = () => {
                         libraries={["places"]}
                         googleMapsApiKey="AIzaSyABJwOB8DHDvnY4ETA5Sb_jbffDZEGUV4o"
                     >
-                        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+                        <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={{ lat: latitude, lng: longitude }}
+                            zoom={14}
+                        >
                             <Autocomplete
                                 onLoad={(autocomplete) =>
                                     console.log("autocomplete: ", autocomplete)
@@ -161,35 +166,33 @@ const Maps = () => {
                         </GoogleMap>
                     </LoadScript>
                 </div>
-                <div className="col-12 flex flex-col justify-center self-center border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-200">
-                    <span className="text-lg">Nearest Hospital</span>
+                <div className="col-6 flex flex-col justify-center self-center border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-200">
+                    <span className="text-lg font-semibold border-b-2 border-slate-950">
+                        NEAREST HOSPITALS
+                    </span>
                     <div className="flex w-full flex-wrap">
                         <ul>
                             {hospitals.map((hospital) => {
-                                return <li className="mb-1"> • {hospital.name}</li>;
+                                return <li className="mb-1"> • {hospital.name.toUpperCase()}</li>;
                             })}
                         </ul>
                     </div>
                 </div>
-                <div className="flex flex-col flex-row justify-center self-center border-2 border-gray-400 p-4 gap-2 rounded-lg bg-red-200">
-                    <span className="text-lg">Nearest Pharmacy</span>
+                <div className="col-6 flex flex-col justify-center self-center border-2 border-gray-400 p-4 gap-2 rounded-lg bg-red-200">
+                    <span className="text-lg font-semibold border-b-2 border-slate-950">
+                        NEAREST PHARMACIES
+                    </span>
                     <div className="flex w-full flex-wrap">
                         <ul>
                             {pharmacies.map((pharmacy) => {
-                                return <li className="mb-1"> • {pharmacy.name}</li>;
+                                return <li className="mb-1"> • {pharmacy.name.toUpperCase()}</li>;
                             })}
                         </ul>
                     </div>
                 </div>
-                <div className="flex flex-col self-end">
+                <div className="flex flex-row w-full justify-end my-3">
                     <Callto phone="+905077369888">
-                        <Button
-                            label="  112"
-                            severity="success"
-                            rounded
-                            className="pi pi-phone "
-                            Button
-                        />
+                        <ButtonComponent label="112" icon="pi-phone" type="red" />
                     </Callto>
                 </div>
 

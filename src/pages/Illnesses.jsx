@@ -1,15 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Button } from "primereact/button";
+import { Dialog } from "primereact/dialog";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Calendar } from "primereact/calendar";
+import axios from "axios";
+import moment from "moment";
 
 const Illnesses = () => {
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
-    const [date, setDate] = useState();
+
+    const { loading } = useSelector((state) => state.global);
+
+    const [illnesses, setIllnesses] = useState([]);
+    const [selectedIllness, setSelectedIllness] = useState({});
+    const [showDetails, setShowDetails] = useState(false);
+
+    useEffect(() => {
+        axios
+            .get("http://3.78.3.122:8000/ai/assessment/")
+            .then((res) => {
+                console.log(res.data);
+                setIllnesses(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     return (
         <div className="flex h-full w-full items-center justify-center blue-bg">
@@ -29,15 +48,86 @@ const Illnesses = () => {
                         />
                     </div>
                 </div>
-                <div className="mx-auto w-1/2 w-5/6">
+                <div className="mx-auto w-5/6">
                     <div className="flex flex-row items-end">
                         <span>Illnesses</span>
                     </div>
-                    <div className="flex flex-row mx-auto border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                        <span>Illnesses 1</span>
-                    </div>
+                    {illnesses.map((illness) => {
+                        switch (illness.symptom_details.color) {
+                            case "Green":
+                                return (
+                                    <button
+                                        onClick={() => {
+                                            setSelectedIllness(illness);
+                                            setShowDetails(true);
+                                        }}
+                                        className="w-full"
+                                    >
+                                        <div
+                                            key={illness.id}
+                                            className="grid flex-col leading-none border-2 border-gray-400 px-5 py-3 rounded-lg bg-teal-100"
+                                        >
+                                            <div className="col-12 flex items-center justify-between">
+                                                <span className="text-lg">
+                                                    <i className="pi pi-info-circle mr-3" />
+                                                    {illness.symptom_details.prediction}
+                                                </span>
+                                                <span className="text-sm">
+                                                    {moment(illness.time_created).format(
+                                                        "DD-MM-YYYY hh:mm A"
+                                                    )}
+                                                </span>
+                                            </div>
+                                            {/* <div className="col-12 text-left">
+                                                <span className="text-sm">
+                                                    {illness.symptom_details.description}
+                                                </span>
+                                            </div> */}
+                                        </div>
+                                    </button>
+                                );
+                            case "Red":
+                                return (
+                                    <div
+                                        key={illness.id}
+                                        className="flex flex-col border-2 border-gray-400 px-5 py-3 rounded-lg bg-red-200"
+                                    >
+                                        <span> {illness.symptom_details.prediction} </span>
+                                    </div>
+                                );
+                            default:
+                                return <></>;
+                        }
+                    })}
                 </div>
             </div>
+            <Dialog
+                header="Details"
+                visible={showDetails}
+                onHide={() => setShowDetails(false)}
+                draggable={false}
+            >
+                <div className="grid">
+                    <div className="col-12">
+                        <span className="text-xl font-medium border-b-2 border-slate-500">
+                            Prediction:
+                        </span>
+                    </div>
+                    <div className="col-12 mb-3">
+                        <span>{selectedIllness.symptom_details?.description}</span>
+                    </div>
+                </div>
+                <div className="grid">
+                    <div className="col-12">
+                        <span className="text-xl font-medium border-b-2 border-slate-500">
+                            Treatment:
+                        </span>
+                    </div>
+                    <div className="col-12 mb-3">
+                        <span>{selectedIllness.symptom_details?.treatment}</span>
+                    </div>
+                </div>
+            </Dialog>
         </div>
     );
 };

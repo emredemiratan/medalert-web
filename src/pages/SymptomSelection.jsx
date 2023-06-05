@@ -11,8 +11,6 @@ import { useEffect } from "react";
 const SymptomSelection = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [selectedGender, setSelectedGender] = useState(null);
-    const genders = [{ name: "Disease", code: "d" }];
 
     const [diseases, setDiseases] = useState([]);
 

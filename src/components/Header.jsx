@@ -12,13 +12,7 @@ const Header = () => {
     }
 
     return (
-        <div className="w-full flex justify-end p-2 bg-white">
-            {/* <div className="flex items-center justify-center">
-                <button className="flex items-center justify-center">
-                    <i className="pi pi-arrow-left mr-2" />
-                    <span>Home Page</span>
-                </button>
-            </div> */}
+        <div className="w-full flex justify-end p-2 bg-white`">
             <button
                 onClick={() => MyAccount()}
                 className="flex items-center p-2 border border-black rounded-2xl"

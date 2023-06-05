@@ -38,7 +38,7 @@ const Login = () => {
         };
 
         axios
-            .post(process.env.REACT_APP_BASE_URL + "/auth/login/", toSend)
+            .post("http://3.78.3.122:8000/auth/login/", toSend)
             .then((res) => {
                 console.log(res.data);
                 localStorage.setItem("_token", res.data.token.access);
