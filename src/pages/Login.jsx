@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 import { Toast } from "bootstrap";
 import axios from "axios";
+import { switchLoadingStatus } from "../store/slices/globalSlice";
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Login = () => {
         return result;
     };
     async function Login() {
+        dispatch(switchLoadingStatus(true));
         let toSend = {
             email: "claush",
             password: "1",
@@ -46,6 +48,9 @@ const Login = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                dispatch(switchLoadingStatus(false));
             });
     }
 

@@ -9,6 +9,7 @@ import { Panel } from "primereact/panel";
 
 import { GoogleMap, LoadScript, Autocomplete, Marker } from "@react-google-maps/api";
 import axios from "axios";
+import { switchLoadingStatus } from "../store/slices/globalSlice";
 
 const containerStyle = {
     width: "100%",
@@ -26,6 +27,7 @@ const Maps = () => {
     const [pharmacies, setPharmacies] = useState([]);
 
     useEffect(() => {
+        dispatch(switchLoadingStatus(true));
         axios
             .get("https://ipapi.co/json")
             .then((res) => {
@@ -47,6 +49,9 @@ const Maps = () => {
             })
             .catch((err) => {
                 console.log(err);
+            })
+            .finally(() => {
+                dispatch(switchLoadingStatus(false));
             });
     }, []);
 

@@ -6,6 +6,7 @@ import axios from "axios";
 
 import ButtonComponent from "../components/ButtonComponent";
 import { toast } from "react-hot-toast";
+import { switchLoadingStatus } from "../store/slices/globalSlice";
 
 const Register = () => {
     const dispatch = useDispatch();
