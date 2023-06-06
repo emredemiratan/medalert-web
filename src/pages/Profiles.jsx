@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Button } from "primereact/button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 import axios from "axios";
@@ -10,7 +9,6 @@ import { switchLoadingStatus } from "../store/slices/globalSlice";
 
 const Profiles = () => {
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
 
     const [profiles, setProfiles] = useState([]);

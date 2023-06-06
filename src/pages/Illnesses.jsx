@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
-
-import { Button } from "primereact/button";
-import { Dialog } from "primereact/dialog";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Calendar } from "primereact/calendar";
+
 import axios from "axios";
 import moment from "moment";
+import { Dialog } from "primereact/dialog";
 
 const Illnesses = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const { loading } = useSelector((state) => state.global);
 
     const [illnesses, setIllnesses] = useState([]);
     const [selectedIllness, setSelectedIllness] = useState({});

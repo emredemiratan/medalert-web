@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -11,8 +11,6 @@ import { switchLoadingStatus } from "../store/slices/globalSlice";
 const Register = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const { loading } = useSelector((state) => state.global);
 
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");

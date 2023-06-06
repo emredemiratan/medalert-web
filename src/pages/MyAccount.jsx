@@ -1,24 +1,13 @@
 import React from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../store/slices/userSlice";
 import ButtonComponent from "../components/ButtonComponent";
 
 const MyAccount = () => {
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
-
-    function ProfileInfo() {
-        navigate("/profileinfo");
-    }
-    function MyAddresses() {
-        navigate("/myadresses");
-    }
-    function Illnesses() {
-        navigate("/illnesses");
-    }
 
     const handleLogout = () => {
         localStorage.removeItem("_token");

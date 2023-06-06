@@ -5,10 +5,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { Outlet } from "react-router-dom";
-import ButtonComponent from "../components/ButtonComponent";
 import Header from "../components/Header";
 import { Toaster } from "react-hot-toast";
-import axios from "axios";
 
 const Root = () => {
     const navigate = useNavigate();

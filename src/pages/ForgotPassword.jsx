@@ -1,13 +1,11 @@
 import React from "react";
 
-import { Button } from "primereact/button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 
 const ForgotPassword = () => {
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
 
     function ForgotPassword() {

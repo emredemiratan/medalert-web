@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";

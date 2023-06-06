@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { Button } from "primereact/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Calendar } from "primereact/calendar";
 
 const ProfileInformation = () => {
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.global);
     const navigate = useNavigate();
 
     const { user } = useSelector((state) => state.user);

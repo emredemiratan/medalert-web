@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 import { Toast } from "bootstrap";
@@ -10,7 +10,6 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { loading } = useSelector((state) => state.global);
     const [email, emailupdate] = useState("");
     const [password, passwordupdate] = useState("");
 
