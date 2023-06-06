@@ -72,18 +72,6 @@ const Register = () => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <span>Username</span>
-            <input
-              className="px-4 py-2 rounded-lg border-2 border-green-600"
-              type="text"
-              placeholder="Please Enter Your Username"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
             <span>Password</span>
             <input
               className="px-4 py-2 rounded-lg border-2 border-green-600"
