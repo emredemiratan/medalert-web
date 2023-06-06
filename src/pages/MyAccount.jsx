@@ -2,7 +2,7 @@ import React from "react";
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUser } from "../store/slices/userSlice";
+import { setProfile } from "../store/slices/userSlice";
 import ButtonComponent from "../components/ButtonComponent";
 
 const MyAccount = () => {
@@ -11,7 +11,7 @@ const MyAccount = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("_token");
-        dispatch(setUser({ name: "", surname: "" }));
+        dispatch(setProfile({ name: "", surname: "" }));
         navigate("/login");
     };
 

@@ -1,0 +1,65 @@
+GRIM REAPER
+
+randevu ala tikla -> rng
+
+gelen mail => {
+    symptom details
+    profile details
+    questions and answers
+}
+
+
+{
+    profile_details: {
+        name:"enispenis"
+        gender:"M"
+        birthdate:"2023-05-20"
+        phone_number:"+491551067468"
+        user:1
+    }
+    symptom_details: {
+        id:1
+        profile_id:1
+        symptom_details:
+        {
+            coded_features:[12, 7, 3]
+            color:"Green"
+            description:"Drug reaction is an adverse response to medication. Symptoms can range from mild to severe and can occur immediately or over time."
+            prediction:"Drug Reaction"
+            processed_keywords:['burning_micturition', 'stomach_pain', 'continuous_sneezing']
+            treatment:"Treatment may include discontinuing the medication and symptom relief"
+        }
+        time_created:"2023-06-02T23:46:19.913170Z"
+    }
+    questions: [
+        {
+            id: 0,
+            text: "How long have you been experiencing these symptoms? Answer in days.",
+            value: false,
+            answer: "",
+            inputType: "SLIDER",
+        },
+        {
+            id: 1,
+            text: "Have you noticed any specific triggers or patterns related to your symptoms?",
+            value: false,
+            answer: "",
+            inputType: "BUTTON",
+        },
+        {
+            id: 2,
+            text: "Have you sought medical attention for these symptoms before?",
+            value: false,
+            answer: "",
+            inputType: "BUTTON",
+        }
+    ]
+}
+
+
+
+fatih's notes: 
+- summary ekranina renklere gore ayri text ve renklendirme
+- symptom selection alt cizgi muhabbeti (kullanici altcizgisiz gorucek, api baglanti altcizgili) (BITTI)
+- summary api baglantisi (DONE)
+- appointment icin questions'lari state'te tut, ordan cek gonder (TUTTUM)

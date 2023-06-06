@@ -12,7 +12,7 @@ const Root = () => {
     const navigate = useNavigate();
 
     const { loading } = useSelector((state) => state.global);
-    const { user } = useSelector((state) => state.user);
+    const { profile } = useSelector((state) => state.user);
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -40,7 +40,7 @@ const Root = () => {
 
     return (
         <div className="max-w-[100vw] h-[100vh] w-full overflow-x-hidden">
-            {user.name.length > 0 && <Header />}
+            {profile.name?.length > 0 && <Header />}
             <Outlet />
             {loading && <Loading />}
             <Toaster />

@@ -7,7 +7,7 @@ const ProfileInformation = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { user } = useSelector((state) => state.user);
+    const { profile } = useSelector((state) => state.user);
 
     return (
         <div className="8px">
@@ -33,37 +33,37 @@ const ProfileInformation = () => {
                             <span>Name</span>
                         </div>
                         <div className="flex flex-row mx-auto border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>{user.name}</span>
+                            <span>{profile.name}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Surname</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>{user.surname}</span>
+                            <span>{profile.surname}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Phone Number</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>{user.phone_number}</span>
+                            <span>{profile.phone_number}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Email</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>{user.email}</span>
+                            <span>{profile.email}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Date of Birth</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>{user.birthdate}</span>
+                            <span>{profile.birthdate}</span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Gender</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            {user.gender === "M" ? <span>Male</span> : <span>Female</span>}
+                            {profile.gender === "M" ? <span>Male</span> : <span>Female</span>}
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Extra Diseases</span>

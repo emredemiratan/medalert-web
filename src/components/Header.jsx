@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
     const navigate = useNavigate();
 
-    const { user } = useSelector((state) => state.user);
+    const { profile } = useSelector((state) => state.user);
 
     function MyAccount() {
         navigate("/myaccount");
@@ -17,10 +17,10 @@ const Header = () => {
                 onClick={() => MyAccount()}
                 className="flex items-center p-2 border border-black rounded-2xl"
             >
-                <span className="mx-2">{user.name}</span>
+                <span className="mx-2">{profile.name}</span>
                 <img
                     src={require("../assets/user-icon.png")}
-                    alt={user.name}
+                    alt={profile.name}
                     className="mini-icon mx-2 my-1"
                 />
             </button>

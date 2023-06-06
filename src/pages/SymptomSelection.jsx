@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Typewriter from "../components/Typewriter";
 import DropdownComponent from "../components/DropdownComponent";
@@ -8,14 +8,18 @@ import ButtonComponent from "../components/ButtonComponent";
 import axios from "axios";
 import { useEffect } from "react";
 import { switchLoadingStatus } from "../store/slices/globalSlice";
+import { setSymptoms } from "../store/slices/symptomSlice";
+import { toast } from "react-hot-toast";
 
 const SymptomSelection = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [diseases, setDiseases] = useState([]);
+    const [symptomsList, setSymptomsList] = useState([]);
 
-    const [selectedDiseases, setSelectedDiseases] = useState([]);
+    const [selectedSymptoms, setSelectedSymptoms] = useState([]);
+
+    const { profile } = useSelector((state) => state.user);
 
     const customerIsNotWell = "I'm sorry to hear that. Could you tell me what's wrong with you?";
 
@@ -24,8 +28,7 @@ const SymptomSelection = () => {
         axios
             .get("http://3.78.3.122:8000/symptoms/")
             .then((res) => {
-                console.log(res.data);
-                setDiseases(res.data);
+                modifySymptoms(res.data);
             })
             .catch((err) => {
                 console.log(err);
@@ -35,9 +38,24 @@ const SymptomSelection = () => {
             });
     }, []);
 
-    function Submit() {
+    const modifySymptoms = async (original) => {
+        let modifiedArr = [];
+
+        original.forEach((symptom) => {
+            let newObj = {
+                id: symptom.id,
+                modifiedName: symptom.name.split("_").join(" ").toUpperCase(),
+                name: symptom.name,
+            };
+            modifiedArr.push(newObj);
+        });
+        setSymptomsList(modifiedArr);
+    };
+
+    const handleSubmit = async () => {
+        dispatch(setSymptoms(selectedSymptoms));
         navigate("/questions");
-    }
+    };
 
     return (
         <form className="h-full w-full blue-bg flex">
@@ -53,10 +71,10 @@ const SymptomSelection = () => {
                     <div className="grid">
                         <div className="flex flex-row w-full gap-2 items-center">
                             <DropdownComponent
-                                value={selectedDiseases}
-                                onChange={(e) => setSelectedDiseases(e.value)}
-                                options={diseases}
-                                optionLabel="name"
+                                value={selectedSymptoms}
+                                onChange={(e) => setSelectedSymptoms(e.value)}
+                                options={symptomsList}
+                                optionLabel="modifiedName"
                                 placeholder="Select Disease(s)"
                                 className="w-full"
                             />
@@ -67,7 +85,7 @@ const SymptomSelection = () => {
                             <ButtonComponent
                                 label="Submit"
                                 type="lightblue"
-                                onClick={() => Submit()}
+                                onClick={() => handleSubmit()}
                             />
                         </div>
                     </div>

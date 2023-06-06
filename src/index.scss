@@ -47,10 +47,19 @@ html {
         width: 90%;
     }
 }
-
-.loading-container {
-    //
+.p-panel {
+    padding: 0 !important;
 }
-.loading-image {
-    //
+.p-panel-content {
+    padding: 0 !important;
+}
+
+.green-response {
+    background-color: rgba(166, 255, 166, 0.5);
+}
+.yellow-response {
+    background-color: rgba(239, 253, 147, 0.5);
+}
+.red-response {
+    background-color: rgba(254, 150, 150, 0.5);
 }

@@ -11,10 +11,10 @@ const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { user } = useSelector((state) => state.user);
+    const { profile } = useSelector((state) => state.user);
 
     const texts = {
-        greetings: `Hello ${user.name}, how are you feeling today?`,
+        greetings: `Hello ${profile.name}, how are you feeling today?`,
         customerIsWell: "I'm glad to hear that. Have a nice day.",
     };
 

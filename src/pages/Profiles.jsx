@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
 import axios from "axios";
-import { setUser } from "../store/slices/userSlice";
+import { setProfile } from "../store/slices/userSlice";
 import { switchLoadingStatus } from "../store/slices/globalSlice";
 
 const Profiles = () => {
@@ -38,7 +38,7 @@ const Profiles = () => {
 
     const handleProfileSelection = async (profile) => {
         console.log(profile);
-        await dispatch(setUser(profile));
+        await dispatch(setProfile(profile));
         navigate("/home");
     };
 
