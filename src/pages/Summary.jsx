@@ -108,7 +108,10 @@ const Maps = () => {
                 </div>
                 <div className="flex flex-col border-2 border-gray-400 p-2 rounded-lg bg-white opacity-90">
                     <div className="p-3 flex justify-center">
-                        <Typewriter text="Here are some possible causes I've gathered for you. And some of the nearest hospitals and pharmacies. In case you need it. Hope you'll feel better soon..." />
+                        <Typewriter text="Here are some possible causes I've gathered for you. 
+                        And some of the nearest hospitals and pharmacies. In case you need it. 
+                        Note; RED color high-risk diseases, YELLOW represents medium-risk diseases, and GREEN represents low-risk diseases.
+                        Hope you'll feel better soon..." />
                     </div>
                 </div>
                 {response.color === "Green" && (

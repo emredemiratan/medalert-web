@@ -8,54 +8,28 @@ import { Dropdown } from "primereact/dropdown";
 import DropdownComponent from "../components/DropdownComponent";
 import ButtonComponent from "../components/ButtonComponent";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const CreateProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [visible, setVisible] = useState("");
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
+  const [date, setDate] = useState();
   const [drug, setDrug] = useState("");
   const [selectedGender, setSelectedGender] = useState(null);
-  const [date, setDate] = useState();
-  const [number, setNumber] = useState("");
+  const [diseases, setDiseases] = useState([]);
+  const [selectedDiseases, setSelectedDiseases] = useState([]);
+  
+  
 
   const genders = [
     { name: "Male", code: "M" },
     { name: "Female", code: "F" },
   ];
-
-  const [diseases, setDiseases] = useState([]);
-  const [selectedDiseases, setSelectedDiseases] = useState([]);
-
-  {
-    /*const medications = [
-    {
-      id: 0,
-      name: "Cough Syrup",
-    },
-    {
-      id: 1,
-      name: "Aspirin",
-    },
-    {
-      id: 2,
-      name: "Blood Pressure Medicine",
-    },
-    {
-      id: 3,
-      name: "Insulin",
-    },
-    {
-      id: 4,
-      name: "Blood Thinner",
-    },
-  ];
-*/
-  }
-  const [selectedMedications, setSelectedMedications] = useState([]);
 
   useEffect(() => {
     axios
@@ -67,6 +41,67 @@ const CreateProfile = () => {
         console.log(err);
       });
   }, []);
+
+  function CreateProfile() {
+    let toSend = {
+      name: name,
+      surname: surname,
+      phone: phone,
+      date: date,
+      genders: genders,
+      user: "",
+    };
+  
+    axios
+      .post("http://3.78.3.122:8000/profile/", toSend)
+      .then((res) => {
+        console.log(res.data);
+        toast.success("your account has been created!");
+        setVisible(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+      });
+    }
+
+    function Drug() {
+      let toSend = {
+        drug: drug,
+        user: "",
+      };
+      axios
+      .post("http://3.78.3.122:8000/profile/drugs/", toSend)
+      .then((res) => {
+        console.log(res.data);
+        toast.success("your account has been created!");
+        setVisible(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+      });
+    }
+
+    function Diseases() {
+      let toSend = {
+        sickness: diseases,
+        user: "",
+      };
+
+      axios
+      .post("http://3.78.3.122:8000/profile/sickness/", toSend)
+      .then((res) => {
+        console.log(res.data);
+        toast.success("your account has been created!");
+        setVisible(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+      });
+    }
+  
 
   function CreateProfile() {
     const toSend = {
@@ -137,16 +172,6 @@ const CreateProfile = () => {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <span>Email</span>
-            <input
-              className="px-4 py-2 rounded-lg border-2 border-green-600"
-              type="email"
-              placeholder="Please Enter Your Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
             <span>Date Of Birth</span>
             <Calendar
               value={date}
@@ -170,7 +195,7 @@ const CreateProfile = () => {
           </div>
           <span>Extra Diseases</span>
           <div className="grid">
-            <div className="flex flex-row w-full gap-2 items-center">
+            <div className="flex flex-row w-full gap-2 items-center ">
               <DropdownComponent
                 value={selectedDiseases}
                 onChange={(e) => setSelectedDiseases(e.value)}
@@ -183,14 +208,6 @@ const CreateProfile = () => {
           </div>
           <span>Regularly Used Medications</span>
           <div className="grid mb-3">
-            {/*<DropdownComponent
-                value={selectedMedications}
-                onChange={(e) => setSelectedMedications(e.value)}
-                options={medications}
-                optionLabel="name"
-                placeholder="Select Medication(s)"
-                className="w-full"
-                />*/}
             <input
               className="px-4 py-2 rounded-lg border-2 border-green-600"
               type="text"
