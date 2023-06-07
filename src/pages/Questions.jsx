@@ -216,6 +216,14 @@ const Questions = () => {
                                 onClick={() => handleNext()}
                                 type="lightblue"
                             />
+                            {order === 0 && (
+                                <ButtonComponent
+                                    type="turquoise"
+                                    label="Submit"
+                                    onClick={() => handleNext()}
+                                    className="ml-5"
+                                />
+                            )}
                         </div>
                     </div>
                 </div>

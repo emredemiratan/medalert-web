@@ -106,7 +106,11 @@ const Maps = () => {
             .post("http://3.78.3.122:8000/ntgr/appointment/", toSend)
             .then((res) => {
                 console.log(res);
-                toast.success("Appointment created!");
+                if (res.data.is_approved) {
+                    toast.success("Appointment created!");
+                } else {
+                    toast.error("Appointment rejected!");
+                }
             })
             .catch((err) => {
                 console.log(err);

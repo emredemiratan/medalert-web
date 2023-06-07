@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,36 @@ const ProfileInformation = () => {
     const navigate = useNavigate();
 
     const { profile } = useSelector((state) => state.user);
+
+    const [sickness, setSickness] = useState([]);
+    const [drugs, setDrugs] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get(`http://3.78.3.122:8000/profile/sickness/${profile.id}`)
+            .then((res) => {
+                console.log(res);
+                setSickness(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                //
+            });
+        axios
+            .get(`http://3.78.3.122:8000/profile/drugs/${profile.id}`)
+            .then((res) => {
+                console.log(res);
+                setDrugs(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                //
+            });
+    }, []);
 
     return (
         <div className="8px">
@@ -36,23 +67,17 @@ const ProfileInformation = () => {
                             <span>{profile.name}</span>
                         </div>
                         <div className="flex flex-row items-end">
-                            <span>Surname</span>
-                        </div>
-                        <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span>{profile.surname}</span>
-                        </div>
-                        <div className="flex flex-row items-end">
                             <span>Phone Number</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
                             <span>{profile.phone_number}</span>
                         </div>
-                        <div className="flex flex-row items-end">
+                        {/* <div className="flex flex-row items-end">
                             <span>Email</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
                             <span>{profile.email}</span>
-                        </div>
+                        </div> */}
                         <div className="flex flex-row items-end">
                             <span>Date of Birth</span>
                         </div>
@@ -64,18 +89,29 @@ const ProfileInformation = () => {
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
                             {profile.gender === "M" ? <span>Male</span> : <span>Female</span>}
+                            {profile.gender === "A" && <span>Apache Attack Helicopter</span>}
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Extra Diseases</span>
                         </div>
-                        <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span> - </span>
+                        <div className="flex flex-row mx-auto border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
+                            <span>
+                                {" "}
+                                {sickness.map((sick) => {
+                                    return <span className="mx-1">{sick.sickness}</span>;
+                                })}{" "}
+                            </span>
                         </div>
                         <div className="flex flex-row items-end">
                             <span>Regulary Used Medications</span>
                         </div>
                         <div className="flex flex-row mx-auto  border-2 border-gray-400 p-4 gap-2 rounded-lg bg-teal-100">
-                            <span> - </span>
+                            <span>
+                                {" "}
+                                {drugs.map((drug) => {
+                                    return <span className="mx-1">{drug.drug}</span>;
+                                })}{" "}
+                            </span>
                         </div>
                     </div>
                 </div>
