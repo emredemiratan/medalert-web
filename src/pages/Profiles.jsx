@@ -16,7 +16,8 @@ const Profiles = () => {
     useEffect(() => {
         dispatch(switchLoadingStatus(true));
         axios
-            .get(`http://3.78.3.122:8000/profile/${localStorage.getItem("id")}`)
+            .get(`http://3.78.3.122:8000/profile/account/${localStorage.getItem("id")}`)
+            // .get(`http://3.78.3.122:8000/profile/`)
             .then((res) => {
                 console.log(res.data);
                 setProfiles(res.data);
@@ -31,9 +32,6 @@ const Profiles = () => {
 
     function CreateProfile() {
         navigate("/createprofile");
-    }
-    function MyAccount() {
-        navigate("/myaccount");
     }
 
     const handleProfileSelection = async (profile) => {
@@ -82,8 +80,24 @@ const Profiles = () => {
                                 );
                             })
                         ) : (
-                            <span>No Profile! You can start with creating one.</span>
+                            <span>No profile found! You can start by creating one.</span>
                         )}
+                        {/* {profiles.length === 1 && (
+                            <div
+                                className="col flex justify-center items-center mb-3"
+                                key={profiles.phone_number}
+                            >
+                                <button
+                                    className="flex w-11/12 items-center p-2 border border-black bg-white text-blue-600 rounded-2xl justify-center"
+                                    onClick={() => {
+                                        handleProfileSelection(profiles);
+                                    }}
+                                >
+                                    <i className="pi pi-user mr-2 text-xl text-blue-600"></i>
+                                    <span>{profiles.name}</span>
+                                </button>
+                            </div>
+                        )} */}
                     </div>
                 </div>
 

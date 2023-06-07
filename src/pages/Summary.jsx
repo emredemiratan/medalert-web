@@ -27,6 +27,7 @@ const Maps = () => {
     const [pharmacies, setPharmacies] = useState([]);
 
     const { response } = useSelector((state) => state.response);
+    const { questions } = useSelector((state) => state.question);
 
     useEffect(() => {
         dispatch(switchLoadingStatus(true));
@@ -83,23 +84,35 @@ const Maps = () => {
 
     // const appointmentData = {
     //     questions: questions,
-    //// profile_details: user,
+    // // profile_details: user,
     //    // symptom_details: response,
     // assessment id
     // };
 
-    // const handleAppointment = () => {
-    //     axios
-    //         .post("http://3.78.3.122:8000/appointment/", appointmentData)
-    //         .then((res) => {
-    //             console.log(res);
-    //             toast.success("Appointment created!");
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             toast.error(err.message);
-    //         });
-    // };
+    const handleAppointment = () => {
+        let answers = {};
+        questions.forEach((question) => {
+            let tempQuestion = question.question;
+            let tempAnswer = question.answer;
+            answers[tempQuestion] = tempAnswer;
+        });
+
+        const toSend = {
+            assessment_id: response.assessment_id,
+            answers,
+        };
+
+        axios
+            .post("http://3.78.3.122:8000/ntgr/appointment/", toSend)
+            .then((res) => {
+                console.log(res);
+                toast.success("Appointment created!");
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error(err.message);
+            });
+    };
 
     return (
         <div className="flex flex-col items-center justify-center blue-bg">
@@ -109,10 +122,12 @@ const Maps = () => {
                 </div>
                 <div className="flex flex-col border-2 border-gray-400 p-2 rounded-lg bg-white opacity-90">
                     <div className="p-3 flex justify-center">
-                        <Typewriter text="Here are some possible causes I've gathered for you. 
+                        <Typewriter
+                            text="Here are some possible causes I've gathered for you. 
                         And some of the nearest hospitals and pharmacies. In case you need it. 
                         Note; RED color high-risk diseases, YELLOW represents medium-risk diseases, and GREEN represents low-risk diseases.
-                        Hope you'll feel better soon..." />
+                        Hope you'll feel better soon..."
+                        />
                     </div>
                 </div>
                 {response.color === "Green" && (
@@ -265,7 +280,12 @@ const Maps = () => {
                     </div>
                 </div>
                 <div className="flex flex-row w-full justify-between my-3">
-                    <ButtonComponent label="Appointment" icon="pi-send" type="turquoise" />
+                    <ButtonComponent
+                        label="Appointment"
+                        icon="pi-send"
+                        type="turquoise"
+                        onClick={() => handleAppointment()}
+                    />
                     <Callto phone="+905077369888">
                         <ButtonComponent label="112" icon="pi-phone" type="red" />
                     </Callto>
