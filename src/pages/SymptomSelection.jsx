@@ -76,7 +76,7 @@ const SymptomSelection = () => {
                                 options={symptomsList}
                                 optionLabel="modifiedName"
                                 placeholder="Select Disease(s)"
-                                className="w-full"
+                                className="w-full max-w-full"
                             />
                         </div>
                     </div>

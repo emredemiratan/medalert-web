@@ -83,8 +83,9 @@ const Maps = () => {
 
     // const appointmentData = {
     //     questions: questions,
-    //     profile_details: user,
-    //     symptom_details: response,
+    //// profile_details: user,
+    //    // symptom_details: response,
+    // assessment id
     // };
 
     // const handleAppointment = () => {

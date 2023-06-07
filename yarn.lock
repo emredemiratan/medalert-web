@@ -1795,11 +1795,6 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@popperjs/core@^2.11.6":
-  version "2.11.7"
-  resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.7.tgz"
-  integrity sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==
-
 "@prettier/plugin-xml@^2.2.0":
   version "2.2.0"
   resolved "https://registry.npmjs.org/@prettier/plugin-xml/-/plugin-xml-2.2.0.tgz"

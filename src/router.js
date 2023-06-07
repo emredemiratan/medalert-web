@@ -19,6 +19,7 @@ import ProfileInformation from "./pages/ProfileInformation";
 import MyAdresses from "./pages/MyAdresses";
 import Illnesses from "./pages/Illnesses";
 import Questions from "./pages/Questions";
+import ProfileIllnessess from "./pages/ProfileIllnessess";
 
 const router = createBrowserRouter([
     {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
             {
                 path: "/questions",
                 element: <Questions />,
+            },
+            {
+                path: "/profileIllnessess",
+                element: <ProfileIllnessess />,
             },
         ],
     },

@@ -16,7 +16,7 @@ const Profiles = () => {
     useEffect(() => {
         dispatch(switchLoadingStatus(true));
         axios
-            .get("http://3.78.3.122:8000/profile/")
+            .get(`http://3.78.3.122:8000/profile/${localStorage.getItem("id")}`)
             .then((res) => {
                 console.log(res.data);
                 setProfiles(res.data);
@@ -59,27 +59,31 @@ const Profiles = () => {
                         className="w-1/2 h-1/2 "
                     />
                 </div>
-                <span className="ml-5">Your Profiles:</span>
+                <span className="ml-5 text-lg font-medium">Your Profiles:</span>
                 <div className="col-12 max-h-[300px] overflow-scroll p-3">
                     <div className="grid md:grid-cols-3 grid-col-6 flex-col flex-wrap">
-                        {profiles.map((profile) => {
-                            return (
-                                <div
-                                    className="col flex justify-center items-center mb-3"
-                                    key={profile.phone_number}
-                                >
-                                    <button
-                                        className="flex w-11/12 items-center p-2 border border-black bg-white text-blue-600 rounded-2xl justify-center"
-                                        onClick={() => {
-                                            handleProfileSelection(profile);
-                                        }}
+                        {profiles.length > 0 ? (
+                            profiles.map((profile) => {
+                                return (
+                                    <div
+                                        className="col flex justify-center items-center mb-3"
+                                        key={profile.phone_number}
                                     >
-                                        <i className="pi pi-user mr-2 text-xl text-blue-600"></i>
-                                        <span>{profile.name}</span>
-                                    </button>
-                                </div>
-                            );
-                        })}
+                                        <button
+                                            className="flex w-11/12 items-center p-2 border border-black bg-white text-blue-600 rounded-2xl justify-center"
+                                            onClick={() => {
+                                                handleProfileSelection(profile);
+                                            }}
+                                        >
+                                            <i className="pi pi-user mr-2 text-xl text-blue-600"></i>
+                                            <span>{profile.name}</span>
+                                        </button>
+                                    </div>
+                                );
+                            })
+                        ) : (
+                            <span>No Profile! You can start with creating one.</span>
+                        )}
                     </div>
                 </div>
 
