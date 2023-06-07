@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ButtonComponent from "../components/ButtonComponent";
-import { Toast } from "bootstrap";
 import axios from "axios";
 import { switchLoadingStatus } from "../store/slices/globalSlice";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -23,11 +23,11 @@ const Login = () => {
         let result = true;
         if (email === "" || email === null) {
             result = false;
-            Toast.warning("Please Enter Email");
+            toast.warning("Please Enter Email");
         }
         if (password === "" || password === null) {
             result = false;
-            Toast.warning("Please Enter Password");
+            toast.warning("Please Enter Password");
         }
         return result;
     };
